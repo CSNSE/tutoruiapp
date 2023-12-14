@@ -6,12 +6,18 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps, useAuth, useNavigateAction } from "./utils";
+import {
+  getOverrideProps,
+  useAuth,
+  useAuthSignOutAction,
+  useNavigateAction,
+} from "./utils";
 import { Button, Text, View } from "@aws-amplify/ui-react";
 export default function NavBar(props) {
   const { tutoringEvent, overrides, ...rest } = props;
   const authAttributes = useAuth().user?.attributes ?? {};
   const createOnClick = useNavigateAction({ type: "url", url: "/new" });
+  const buttonOnClick = useAuthSignOutAction({ global: false });
   return (
     <View
       width="725px"
@@ -43,29 +49,7 @@ export default function NavBar(props) {
         alignItems="unset"
         position="absolute"
         top="24px"
-        left="0px"
-        padding="0px 0px 0px 0px"
-        whiteSpace="pre-wrap"
-        children="Name:&#xA;"
-        {...getOverrideProps(overrides, "Name:")}
-      ></Text>
-      <Text
-        fontFamily="Inter"
-        fontSize="16px"
-        fontWeight="700"
-        color="rgba(0,0,0,1)"
-        lineHeight="24px"
-        textAlign="center"
-        display="block"
-        direction="column"
-        justifyContent="unset"
-        width="85px"
-        height="23px"
-        gap="unset"
-        alignItems="unset"
-        position="absolute"
-        top="24px"
-        left="96px"
+        left="185px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children={authAttributes["email"]}
@@ -129,6 +113,21 @@ export default function NavBar(props) {
           createOnClick();
         }}
         {...getOverrideProps(overrides, "Create")}
+      ></Button>
+      <Button
+        width="unset"
+        height="unset"
+        position="absolute"
+        top="23px"
+        left="18px"
+        size="default"
+        isDisabled={false}
+        variation="primary"
+        children="Sign Out"
+        onClick={() => {
+          buttonOnClick();
+        }}
+        {...getOverrideProps(overrides, "Button")}
       ></Button>
     </View>
   );

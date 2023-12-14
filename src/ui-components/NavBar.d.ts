@@ -19,11 +19,11 @@ export declare type Variant = {
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type NavBarOverridesProps = {
     NavBar?: PrimitiveOverrideProps<ViewProps>;
-    "Name:"?: PrimitiveOverrideProps<TextProps>;
     name?: PrimitiveOverrideProps<TextProps>;
     "#"?: PrimitiveOverrideProps<TextProps>;
     "Tutoring Hours Logged:"?: PrimitiveOverrideProps<TextProps>;
     Create?: PrimitiveOverrideProps<ButtonProps>;
+    Button?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
 export declare type NavBarProps = React.PropsWithChildren<Partial<ViewProps> & {
     tutoringEvent?: any;

@@ -16,7 +16,7 @@ export default function NoteNavbar(props) {
     <Flex
       gap="40px"
       direction="row"
-      width="718px"
+      width="760px"
       height="109px"
       justifyContent="center"
       alignItems="center"

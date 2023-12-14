@@ -104,6 +104,7 @@ function MyUpdateComponent() {
 const client = generateClient()
 
 class App extends Component {
+  handleSignOut = () => {}
   render() {
     return (
       <div className="App"><header className='App-header'>
@@ -119,11 +120,25 @@ class App extends Component {
               />
           </Routes>
         </Router>
+        
       </header>
 
       </div>
     );
   }
 }
-export default withAuthenticator(App);
 
+export default withAuthenticator(App, {
+  onStateChange: (state) => {
+    // Handle state changes (e.g., sign-in, sign-out)
+    console.log('Auth state changed:', state);
+  },
+  includeGreetings: true, // Display greetings message
+  signOutButton: {
+    onClick: () => {
+      // Custom sign-out logic if needed
+      // This is triggered when the default sign-out button is clicked
+      console.log('Custom sign-out logic');
+    },
+  },
+});

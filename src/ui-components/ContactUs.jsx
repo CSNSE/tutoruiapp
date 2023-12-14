@@ -6,11 +6,14 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "./utils";
+import { getOverrideProps, useAuthSignOutAction } from "./utils";
 import { Button, Flex, Text } from "@aws-amplify/ui-react";
 import MyIcon from "./MyIcon";
 export default function ContactUs(props) {
   const { overrides, ...rest } = props;
+  const buttonFourOneFiveSevenTwoFourFourEightOnClick = useAuthSignOutAction({
+    global: false,
+  });
   return (
     <Flex
       gap="24px"
@@ -78,6 +81,9 @@ export default function ContactUs(props) {
         isDisabled={false}
         variation="default"
         children="Default Button"
+        onClick={() => {
+          buttonFourOneFiveSevenTwoFourFourEightOnClick();
+        }}
         {...getOverrideProps(overrides, "Button41572448")}
       ></Button>
       <Button
