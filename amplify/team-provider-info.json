@@ -17,6 +17,9 @@
       },
       "api": {
         "tutoruiapp": {}
+      },
+      "storage": {
+        "s3tutoruiappstorage71b7c7a4": {}
       }
     }
   }

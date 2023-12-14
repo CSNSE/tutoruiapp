@@ -11,21 +11,10 @@ import { Button, Text, View } from "@aws-amplify/ui-react";
 export default function NavBar(props) {
   const { tutoringEvent, overrides, ...rest } = props;
   const authAttributes = useAuth().user?.attributes ?? {};
-  const buttonFourOneSixZeroTwoSixThreeTwoOnClick = useNavigateAction({
-    type: "url",
-    url: "/new",
-  });
-  const buttonFourOneFiveSevenTwoFourFiveSixOnClick = useNavigateAction({
-    type: "url",
-    url: "/new",
-  });
-  const buttonFourOneSixZeroTwoSixThreeSevenOnClick = useNavigateAction({
-    type: "url",
-    url: "/new",
-  });
+  const createOnClick = useNavigateAction({ type: "url", url: "/new" });
   return (
     <View
-      width="430px"
+      width="725px"
       height="76px"
       display="block"
       gap="unset"
@@ -53,12 +42,56 @@ export default function NavBar(props) {
         gap="unset"
         alignItems="unset"
         position="absolute"
-        top="27px"
-        left="-5px"
+        top="24px"
+        left="0px"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children="Name:&#xA;"
+        {...getOverrideProps(overrides, "Name:")}
+      ></Text>
+      <Text
+        fontFamily="Inter"
+        fontSize="16px"
+        fontWeight="700"
+        color="rgba(0,0,0,1)"
+        lineHeight="24px"
+        textAlign="center"
+        display="block"
+        direction="column"
+        justifyContent="unset"
+        width="85px"
+        height="23px"
+        gap="unset"
+        alignItems="unset"
+        position="absolute"
+        top="24px"
+        left="96px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children={authAttributes["email"]}
-        {...getOverrideProps(overrides, "Name:")}
+        {...getOverrideProps(overrides, "name")}
+      ></Text>
+      <Text
+        fontFamily="Inter"
+        fontSize="16px"
+        fontWeight="700"
+        color="rgba(0,0,0,1)"
+        lineHeight="24px"
+        textAlign="center"
+        display="block"
+        direction="column"
+        justifyContent="unset"
+        width="85px"
+        height="23px"
+        gap="unset"
+        alignItems="unset"
+        position="absolute"
+        top="24px"
+        left="555px"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children="#"
+        {...getOverrideProps(overrides, "#")}
       ></Text>
       <Text
         fontFamily="Inter"
@@ -75,57 +108,27 @@ export default function NavBar(props) {
         gap="unset"
         alignItems="unset"
         position="absolute"
-        top="27px"
-        left="164px"
+        top="24px"
+        left="391px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Tutoring Hours Logged:&#xA;"
         {...getOverrideProps(overrides, "Tutoring Hours Logged:")}
       ></Text>
       <Button
-        width="unset"
-        height="unset"
-        position="absolute"
-        top="-94.5px"
-        left="643px"
-        size="default"
-        isDisabled={false}
-        variation="primary"
-        children="+"
-        onClick={() => {
-          buttonFourOneSixZeroTwoSixThreeTwoOnClick();
-        }}
-        {...getOverrideProps(overrides, "Button41602632")}
-      ></Button>
-      <Button
-        width="unset"
-        height="unset"
-        position="absolute"
-        top="18px"
-        left="637px"
-        size="default"
-        isDisabled={false}
-        variation="primary"
-        children="+"
-        onClick={() => {
-          buttonFourOneFiveSevenTwoFourFiveSixOnClick();
-        }}
-        {...getOverrideProps(overrides, "Button41572456")}
-      ></Button>
-      <Button
         width="31px"
         height="32px"
         position="absolute"
-        top="22px"
-        left="378px"
+        top="19px"
+        left="680px"
         size="default"
         isDisabled={false}
         variation="primary"
         children="+"
         onClick={() => {
-          buttonFourOneSixZeroTwoSixThreeSevenOnClick();
+          createOnClick();
         }}
-        {...getOverrideProps(overrides, "Button41602637")}
+        {...getOverrideProps(overrides, "Create")}
       ></Button>
     </View>
   );

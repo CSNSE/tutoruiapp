@@ -5,8 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { FlexProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
-import { MyIconProps } from "./MyIcon";
+import { ButtonProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -18,19 +17,17 @@ export declare type Variant = {
     overrides: EscapeHatchProps;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type NoteCardOverridesProps = {
-    NoteCard?: PrimitiveOverrideProps<FlexProps>;
-    "Card Area"?: PrimitiveOverrideProps<FlexProps>;
-    "Text Group"?: PrimitiveOverrideProps<FlexProps>;
-    "$99 USD"?: PrimitiveOverrideProps<TextProps>;
-    "4bds 3 ba 2,530 sqft - Active"?: PrimitiveOverrideProps<TextProps>;
-    "832 34th Ave, Seattle, WA 98122"?: PrimitiveOverrideProps<TextProps>;
-    "Frame 439"?: PrimitiveOverrideProps<ViewProps>;
-    MyIcon?: MyIconProps;
+export declare type DispTutorEventOverridesProps = {
+    DispTutorEvent?: PrimitiveOverrideProps<ViewProps>;
+    Delete?: PrimitiveOverrideProps<ButtonProps>;
+    Update?: PrimitiveOverrideProps<ButtonProps>;
+    "Student Name"?: PrimitiveOverrideProps<TextProps>;
+    Date?: PrimitiveOverrideProps<TextProps>;
+    "Concepts Covered"?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
-export declare type NoteCardProps = React.PropsWithChildren<Partial<FlexProps> & {
+export declare type DispTutorEventProps = React.PropsWithChildren<Partial<ViewProps> & {
     tutoringEvent?: any;
 } & {
-    overrides?: NoteCardOverridesProps | undefined | null;
+    overrides?: DispTutorEventOverridesProps | undefined | null;
 }>;
-export default function NoteCard(props: NoteCardProps): React.ReactElement;
+export default function DispTutorEvent(props: DispTutorEventProps): React.ReactElement;

@@ -1,0 +1,12 @@
+{
+  "resourceName": "s3tutoruiappstorage71b7c7a4",
+  "bucketName": "tutoruiapp-storage-71b7c7a4",
+  "policyUUID": "4291f54c",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

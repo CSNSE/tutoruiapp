@@ -6,11 +6,28 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "./utils";
-import { Flex, Image, Text } from "@aws-amplify/ui-react";
+import { generateClient } from "aws-amplify/api";
+import { deleteTutoringEvent } from "../graphql/mutations";
+import { getOverrideProps, useNavigateAction } from "./utils";
+import { Flex, Text, View } from "@aws-amplify/ui-react";
 import MyIcon from "./MyIcon";
+const client = generateClient();
 export default function NoteCard(props) {
-  const { overrides, ...rest } = props;
+  const { tutoringEvent, overrides, ...rest } = props;
+  const frameFourThreeNineOnClick = async () => {
+    await client.graphql({
+      query: deleteTutoringEvent.replaceAll("__typename", ""),
+      variables: {
+        input: {
+          id: tutoringEvent?.id,
+        },
+      },
+    });
+  };
+  const frameFourThreeNineOnMouseUp = useNavigateAction({
+    type: "url",
+    url: "/",
+  });
   return (
     <Flex
       gap="0"
@@ -25,20 +42,6 @@ export default function NoteCard(props) {
       {...getOverrideProps(overrides, "NoteCard")}
       {...rest}
     >
-      <Image
-        width="unset"
-        height="160px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        shrink="0"
-        alignSelf="stretch"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        objectFit="cover"
-        {...getOverrideProps(overrides, "image")}
-      ></Image>
       <Flex
         gap="16px"
         direction="column"
@@ -84,7 +87,7 @@ export default function NoteCard(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="$99 USD"
+            children={tutoringEvent?.studentName}
             {...getOverrideProps(overrides, "$99 USD")}
           ></Text>
           <Text
@@ -107,7 +110,7 @@ export default function NoteCard(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="4bds 3 ba 2,530 sqft - Active"
+            children={tutoringEvent?.date}
             {...getOverrideProps(overrides, "4bds 3 ba 2,530 sqft - Active")}
           ></Text>
           <Text
@@ -129,24 +132,44 @@ export default function NoteCard(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="832 34th Ave, Seattle, WA 98122"
+            children={tutoringEvent?.conceptsCovered}
             {...getOverrideProps(overrides, "832 34th Ave, Seattle, WA 98122")}
           ></Text>
         </Flex>
-        <MyIcon
+        <View
           width="22px"
           height="23px"
           display="block"
           gap="unset"
           alignItems="unset"
           justifyContent="unset"
-          overflow="hidden"
           shrink="0"
           position="relative"
           padding="0px 0px 0px 0px"
-          type="delete"
-          {...getOverrideProps(overrides, "MyIcon")}
-        ></MyIcon>
+          onClick={() => {
+            frameFourThreeNineOnClick();
+          }}
+          onMouseUp={() => {
+            frameFourThreeNineOnMouseUp();
+          }}
+          {...getOverrideProps(overrides, "Frame 439")}
+        >
+          <MyIcon
+            width="22px"
+            height="23px"
+            display="block"
+            gap="unset"
+            alignItems="unset"
+            justifyContent="unset"
+            overflow="hidden"
+            position="absolute"
+            top="0px"
+            left="0px"
+            padding="0px 0px 0px 0px"
+            type="delete"
+            {...getOverrideProps(overrides, "MyIcon")}
+          ></MyIcon>
+        </View>
       </Flex>
     </Flex>
   );

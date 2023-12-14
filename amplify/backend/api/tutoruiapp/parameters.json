@@ -1,5 +1,6 @@
 {
   "AppSyncApiName": "tutoruiapp",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2023-12-11T16:36:02.107Z"
 }

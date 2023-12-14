@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { ButtonProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { ViewProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -17,17 +17,10 @@ export declare type Variant = {
     overrides: EscapeHatchProps;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type NavBarOverridesProps = {
-    NavBar?: PrimitiveOverrideProps<ViewProps>;
-    "Name:"?: PrimitiveOverrideProps<TextProps>;
-    name?: PrimitiveOverrideProps<TextProps>;
-    "#"?: PrimitiveOverrideProps<TextProps>;
-    "Tutoring Hours Logged:"?: PrimitiveOverrideProps<TextProps>;
-    Create?: PrimitiveOverrideProps<ButtonProps>;
+export declare type MyIconeditOverridesProps = {
+    MyIconedit?: PrimitiveOverrideProps<ViewProps>;
 } & EscapeHatchProps;
-export declare type NavBarProps = React.PropsWithChildren<Partial<ViewProps> & {
-    tutoringEvent?: any;
-} & {
-    overrides?: NavBarOverridesProps | undefined | null;
+export declare type MyIconeditProps = React.PropsWithChildren<Partial<ViewProps> & {
+    overrides?: MyIconeditOverridesProps | undefined | null;
 }>;
-export default function NavBar(props: NavBarProps): React.ReactElement;
+export default function MyIconedit(props: MyIconeditProps): React.ReactElement;

@@ -5,8 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { ButtonProps, SelectFieldProps, TextFieldProps, ViewProps } from "@aws-amplify/ui-react";
-import { MyIconProps } from "./MyIcon";
+import { ButtonProps, TextFieldProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -26,10 +25,8 @@ export declare type CreateTutoringEventOverridesProps = {
     TextField41602476?: PrimitiveOverrideProps<TextFieldProps>;
     TextField41921254?: PrimitiveOverrideProps<TextFieldProps>;
     TextField41602584?: PrimitiveOverrideProps<TextFieldProps>;
-    SelectField?: PrimitiveOverrideProps<SelectFieldProps>;
-    Button41602591?: PrimitiveOverrideProps<ButtonProps>;
-    MyIcon?: MyIconProps;
-    Button41921262?: PrimitiveOverrideProps<ButtonProps>;
+    make?: PrimitiveOverrideProps<ButtonProps>;
+    goback?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
 export declare type CreateTutoringEventProps = React.PropsWithChildren<Partial<ViewProps> & {
     tutoringEvent?: any;

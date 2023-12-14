@@ -45,6 +45,7 @@ export declare type TutoringEventCreateFormProps = React.PropsWithChildren<{
     onSubmit?: (fields: TutoringEventCreateFormInputValues) => TutoringEventCreateFormInputValues;
     onSuccess?: (fields: TutoringEventCreateFormInputValues) => void;
     onError?: (fields: TutoringEventCreateFormInputValues, errorMessage: string) => void;
+    onCancel?: () => void;
     onChange?: (fields: TutoringEventCreateFormInputValues) => TutoringEventCreateFormInputValues;
     onValidate?: TutoringEventCreateFormValidationValues;
 } & React.CSSProperties>;

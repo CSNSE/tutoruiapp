@@ -19,6 +19,7 @@ export default function TutoringEventUpdateForm(props) {
     onSuccess,
     onError,
     onSubmit,
+    onCancel,
     onValidate,
     onChange,
     overrides,
@@ -67,7 +68,7 @@ export default function TutoringEventUpdateForm(props) {
   const validations = {
     studentName: [{ type: "Required" }],
     date: [{ type: "Required" }],
-    conceptsCovered: [{ type: "Required" }],
+    conceptsCovered: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -97,7 +98,7 @@ export default function TutoringEventUpdateForm(props) {
         let modelFields = {
           studentName,
           date,
-          conceptsCovered,
+          conceptsCovered: conceptsCovered ?? null,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -203,7 +204,7 @@ export default function TutoringEventUpdateForm(props) {
       ></TextField>
       <TextField
         label="Concepts covered"
-        isRequired={true}
+        isRequired={false}
         isReadOnly={false}
         value={conceptsCovered}
         onChange={(e) => {
@@ -231,20 +232,18 @@ export default function TutoringEventUpdateForm(props) {
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}
       >
-        <Button
-          children="Reset"
-          type="reset"
-          onClick={(event) => {
-            event.preventDefault();
-            resetStateValues();
-          }}
-          isDisabled={!(idProp || tutoringEventModelProp)}
-          {...getOverrideProps(overrides, "ResetButton")}
-        ></Button>
         <Flex
           gap="15px"
           {...getOverrideProps(overrides, "RightAlignCTASubFlex")}
         >
+          <Button
+            children="Cancel"
+            type="button"
+            onClick={() => {
+              onCancel && onCancel();
+            }}
+            {...getOverrideProps(overrides, "CancelButton")}
+          ></Button>
           <Button
             children="Submit"
             type="submit"

@@ -10,43 +10,39 @@ import { useState } from "react";
 import { generateClient } from "aws-amplify/api";
 import { createTutoringEvent } from "../graphql/mutations";
 import { getOverrideProps, useNavigateAction } from "./utils";
-import { Button, SelectField, TextField, View } from "@aws-amplify/ui-react";
-import MyIcon from "./MyIcon";
+import { Button, TextField, View } from "@aws-amplify/ui-react";
 const client = generateClient();
 export default function CreateTutoringEvent(props) {
   const { tutoringEvent, overrides, ...rest } = props;
   const [
-    textFieldFourOneSixZeroTwoFiveEightFourValue,
-    setTextFieldFourOneSixZeroTwoFiveEightFourValue,
+    textFieldFourOneSixZeroTwoFourSevenSixValue,
+    setTextFieldFourOneSixZeroTwoFourSevenSixValue,
   ] = useState("");
   const [
     textFieldFourOneNineTwoOneTwoFiveFourValue,
     setTextFieldFourOneNineTwoOneTwoFiveFourValue,
   ] = useState("");
   const [
-    textFieldFourOneSixZeroTwoFourSevenSixValue,
-    setTextFieldFourOneSixZeroTwoFourSevenSixValue,
+    textFieldFourOneSixZeroTwoFiveEightFourValue,
+    setTextFieldFourOneSixZeroTwoFiveEightFourValue,
   ] = useState("");
-  const buttonFourOneSixZeroTwoFiveNineOneOnClick = async () => {
+  const makeOnClick = async () => {
     await client.graphql({
       query: createTutoringEvent.replaceAll("__typename", ""),
       variables: {
         input: {
-          conceptsCovered: textFieldFourOneSixZeroTwoFiveEightFourValue,
-          month: "date",
-          date: textFieldFourOneNineTwoOneTwoFiveFourValue,
           studentName: textFieldFourOneSixZeroTwoFourSevenSixValue,
+          date: textFieldFourOneNineTwoOneTwoFiveFourValue,
+          conceptsCovered: textFieldFourOneSixZeroTwoFiveEightFourValue,
         },
       },
     });
   };
-  const buttonFourOneNineTwoOneTwoSixTwoOnClick = useNavigateAction({
-    type: "url",
-    url: "/",
-  });
+  const makeOnMouseUp = useNavigateAction({ type: "url", url: "/" });
+  const gobackOnClick = useNavigateAction({ type: "url", url: "/" });
   return (
     <View
-      width="430px"
+      width="725px"
       height="296px"
       display="block"
       gap="unset"
@@ -59,7 +55,7 @@ export default function CreateTutoringEvent(props) {
     >
       <View
         padding="0px 0px 0px 0px"
-        width="430px"
+        width="725px"
         height="296px"
         display="block"
         gap="unset"
@@ -71,7 +67,7 @@ export default function CreateTutoringEvent(props) {
         {...getOverrideProps(overrides, "Group 2")}
       >
         <View
-          width="430px"
+          width="725px"
           height="296px"
           display="block"
           gap="unset"
@@ -86,7 +82,7 @@ export default function CreateTutoringEvent(props) {
           {...getOverrideProps(overrides, "CreateTutoringEvent41602464")}
         >
           <View
-            width="378px"
+            width="526px"
             height="230px"
             display="block"
             gap="unset"
@@ -99,7 +95,7 @@ export default function CreateTutoringEvent(props) {
             {...getOverrideProps(overrides, "Frame 438")}
           >
             <TextField
-              width="300px"
+              width="426px"
               height="unset"
               label="Student Tutored"
               placeholder="Christian Diaz"
@@ -119,7 +115,7 @@ export default function CreateTutoringEvent(props) {
               {...getOverrideProps(overrides, "TextField41602476")}
             ></TextField>
             <TextField
-              width="300px"
+              width="426px"
               height="unset"
               label="Date"
               placeholder="12/25/23 @ Flex"
@@ -139,10 +135,9 @@ export default function CreateTutoringEvent(props) {
               {...getOverrideProps(overrides, "TextField41921254")}
             ></TextField>
             <TextField
-              width="300px"
+              width="426px"
               height="unset"
               label="Concepts Covered"
-              placeholder="Arrays and while loops"
               position="absolute"
               top="156px"
               left="0px"
@@ -158,66 +153,39 @@ export default function CreateTutoringEvent(props) {
               }}
               {...getOverrideProps(overrides, "TextField41602584")}
             ></TextField>
-            <SelectField
-              width="95px"
-              height="unset"
-              placeholder="10"
-              position="absolute"
-              top="76px"
-              left="110px"
-              label=""
-              size="default"
-              isDisabled={false}
-              labelHidden={false}
-              variation="default"
-              date={tutoringEvent?.date}
-              {...getOverrideProps(overrides, "SelectField")}
-            ></SelectField>
-            <Button
-              width="31px"
-              height="32px"
-              position="absolute"
-              top="198px"
-              left="347px"
-              size="default"
-              isDisabled={false}
-              variation="primary"
-              children="+"
-              onClick={() => {
-                buttonFourOneSixZeroTwoFiveNineOneOnClick();
-              }}
-              {...getOverrideProps(overrides, "Button41602591")}
-            ></Button>
           </View>
-          <MyIcon
-            width="24px"
-            height="24px"
-            display="block"
-            gap="unset"
-            alignItems="unset"
-            justifyContent="unset"
-            overflow="hidden"
-            position="absolute"
-            top="14px"
-            left="380px"
-            padding="0px 0px 0px 0px"
-            type="close"
-            {...getOverrideProps(overrides, "MyIcon")}
-          ></MyIcon>
           <Button
             width="31px"
             height="32px"
             position="absolute"
-            top="10px"
-            left="370px"
+            top="242px"
+            left="657px"
+            size="default"
+            isDisabled={false}
+            variation="primary"
+            children="+"
+            onClick={() => {
+              makeOnClick();
+            }}
+            onMouseUp={() => {
+              makeOnMouseUp();
+            }}
+            {...getOverrideProps(overrides, "make")}
+          ></Button>
+          <Button
+            width="31px"
+            height="32px"
+            position="absolute"
+            top="26px"
+            left="657px"
             size="default"
             isDisabled={false}
             variation="primary"
             children="X"
             onClick={() => {
-              buttonFourOneNineTwoOneTwoSixTwoOnClick();
+              gobackOnClick();
             }}
-            {...getOverrideProps(overrides, "Button41921262")}
+            {...getOverrideProps(overrides, "goback")}
           ></Button>
         </View>
       </View>
