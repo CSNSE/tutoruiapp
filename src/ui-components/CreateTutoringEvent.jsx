@@ -6,14 +6,53 @@
 
 /* eslint-disable */
 import * as React from "react";
+import {
+  getOverrideProps,
+  getOverridesFromVariants,
+  mergeVariantsAndOverrides,
+  useNavigateAction,
+} from "./utils";
 import { useState } from "react";
 import { generateClient } from "aws-amplify/api";
 import { createTutoringEvent } from "../graphql/mutations";
-import { getOverrideProps, useNavigateAction } from "./utils";
 import { Button, TextField, View } from "@aws-amplify/ui-react";
 const client = generateClient();
 export default function CreateTutoringEvent(props) {
-  const { tutoringEvent, overrides, ...rest } = props;
+  const { tutoringEvent, overrides: overridesProp, ...rest } = props;
+  const variants = [
+    {
+      overrides: {
+        TextField41602476: {},
+        TextField41921254: {},
+        TextField41602584: {},
+        "Frame 438": {},
+        make: {},
+        goback: {},
+        CreateTutoringEvent41602464: {},
+        "Group 2": {},
+        CreateTutoringEvent: {},
+      },
+      variantValues: { property1: "Default" },
+    },
+    {
+      overrides: {
+        TextField41602476: {},
+        TextField41921254: {},
+        TextField41602584: {},
+        "Frame 438": {},
+        make: {},
+        goback: {},
+        CreateTutoringEvent41602464: {},
+        "Group 2": {},
+        CreateTutoringEvent: {},
+      },
+      variantValues: { property1: "Variant2" },
+    },
+  ];
+  const overrides = mergeVariantsAndOverrides(
+    getOverridesFromVariants(variants, props),
+    overridesProp || {}
+  );
   const [
     textFieldFourOneSixZeroTwoFourSevenSixValue,
     setTextFieldFourOneSixZeroTwoFourSevenSixValue,

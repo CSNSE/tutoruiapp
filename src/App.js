@@ -4,13 +4,16 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Button, ThemeProvider, withAuthenticator } from '@aws-amplify/ui-react';
-import { NavBar, TutoringEventCreateForm, TutoringEventUpdateForm, DispTutorEventCollection} from "./ui-components";
+import { NavBar, TutoringEventCreateForm, TutoringEventUpdateForm, DispTutorEventCollection,EditTutoringEvent} from "./ui-components";
 import { createTutoringEvent } from './graphql/mutations';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { generateClient } from "aws-amplify/api";
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import EventEdit from './EventEdit';
 import { getTutoringEvent } from './graphql/queries';
+
+
 
 function MyFormComponent() {
   const navigate = useNavigate();
@@ -63,38 +66,38 @@ function MyFormComponent() {
 // App.js (continuation)
 
 
-function MyUpdateComponent() {
-  const navigate = useNavigate();
-  const { id } = useParams(); // Use useParams hook to get the ID from the URL
+// function MyUpdateComponent() {
+//   const navigate = useNavigate();
+//   const { id } = useParams(); // Use useParams hook to get the ID from the URL
 
-  return (
-    <div>
-      {/* Other components or content */}
-      <TutoringEventUpdateForm
-        onSubmit={(fields) => {
-          // Example function to trim all string inputs
-          const updatedFields = {};
-          Object.keys(fields).forEach((key) => {
-            if (typeof fields[key] === 'string') {
-              updatedFields[key] = fields[key].trim();
-            } else {
-              updatedFields[key] = fields[key];
-            }
-          });
+//   return (
+//     <div>
+//       {/* Other components or content */}
+//       <TutoringEventUpdateForm
+//         onSubmit={(fields) => {
+//           // Example function to trim all string inputs
+//           const updatedFields = {};
+//           Object.keys(fields).forEach((key) => {
+//             if (typeof fields[key] === 'string') {
+//               updatedFields[key] = fields[key].trim();
+//             } else {
+//               updatedFields[key] = fields[key];
+//             }
+//           });
 
-          // Use the ID as needed
-          console.log('ID:', id);
+//           // Use the ID as needed
+//           console.log('ID:', id);
 
-          // Additional logic or API calls if needed
+//           // Additional logic or API calls if needed
 
-          // Use navigate to go to a different page (replace '/' with your desired path)
-          navigate('/');
-        }}
-        onCancel={() => navigate('/')}
-      />
-    </div>
-  );
-}
+//           // Use navigate to go to a different page (replace '/' with your desired path)
+//           navigate('/');
+//         }}
+//         onCancel={() => navigate('/')}
+//       />
+//     </div>
+//   );
+// }
 
 // ... (the rest of your code)
 
@@ -112,11 +115,11 @@ class App extends Component {
           <Routes>
           <Route exact path = '/' element={<div><NavBar/><DispTutorEventCollection/>
           </div>} />
-          <Route exact path='/new' element= {<MyFormComponent/>} />
+          <Route exact path='/new' element={<div><NavBar/><MyFormComponent/>
+          </div>} />
           <Route
-                exact
-                path="/update/:id" // Define a parameter ":id"
-                element={<MyUpdateComponent/>}
+                exact path="/update/:cid" // Define a parameter ":id"
+                element={<EventEdit/>}
               />
           </Routes>
         </Router>
@@ -128,17 +131,4 @@ class App extends Component {
   }
 }
 
-export default withAuthenticator(App, {
-  onStateChange: (state) => {
-    // Handle state changes (e.g., sign-in, sign-out)
-    console.log('Auth state changed:', state);
-  },
-  includeGreetings: true, // Display greetings message
-  signOutButton: {
-    onClick: () => {
-      // Custom sign-out logic if needed
-      // This is triggered when the default sign-out button is clicked
-      console.log('Custom sign-out logic');
-    },
-  },
-});
+export default withAuthenticator(App)

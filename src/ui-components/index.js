@@ -15,6 +15,7 @@ export { default as DispTutorEvent } from "./DispTutorEvent";
 export { default as DispTutorEventCollection } from "./DispTutorEventCollection";
 export { default as DisplayTutoringEvent } from "./DisplayTutoringEvent";
 export { default as DisplayTutoringEventCollection } from "./DisplayTutoringEventCollection";
+export { default as EditTutoringEvent } from "./EditTutoringEvent";
 export { default as Features2x2 } from "./Features2x2";
 export { default as Filters } from "./Filters";
 export { default as FormCheckout } from "./FormCheckout";

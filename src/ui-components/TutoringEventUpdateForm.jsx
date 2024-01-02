@@ -11,10 +11,13 @@ import { fetchByPath, getOverrideProps, validateField } from "./utils";
 import { generateClient } from "aws-amplify/api";
 import { getTutoringEvent } from "../graphql/queries";
 import { updateTutoringEvent } from "../graphql/mutations";
+import { useNavigate } from 'react-router-dom';
+
 const client = generateClient();
 export default function TutoringEventUpdateForm(props) {
+  const navigate = useNavigate();
   const {
-    id: idProp,
+    idProp,
     tutoringEvent: tutoringEventModelProp,
     onSuccess,
     onError,
@@ -25,6 +28,7 @@ export default function TutoringEventUpdateForm(props) {
     overrides,
     ...rest
   } = props;
+  console.log("thing update got it: " + {idProp});
   const initialValues = {
     studentName: "",
     date: "",
@@ -146,6 +150,7 @@ export default function TutoringEventUpdateForm(props) {
             onError(modelFields, messages);
           }
         }
+        navigate('/');
       }}
       {...getOverrideProps(overrides, "TutoringEventUpdateForm")}
       {...rest}
@@ -241,6 +246,7 @@ export default function TutoringEventUpdateForm(props) {
             type="button"
             onClick={() => {
               onCancel && onCancel();
+              navigate('/');
             }}
             {...getOverrideProps(overrides, "CancelButton")}
           ></Button>
