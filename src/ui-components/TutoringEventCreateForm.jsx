@@ -159,6 +159,7 @@ export default function TutoringEventCreateForm(props) {
         label="Date"
         isRequired={true}
         isReadOnly={false}
+        type="date"
         value={date}
         onChange={(e) => {
           let { value } = e.target;

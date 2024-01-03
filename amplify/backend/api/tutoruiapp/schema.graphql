@@ -7,7 +7,7 @@ type Todo @model @auth(rules: [{allow: public}]) {
 type TutoringEvent @model @auth(rules: [{allow: public}]) {
   id: ID!
   studentName: String!
-  date: String!
+  date: AWSDate!
   conceptsCovered: String!
 }
 
@@ -15,4 +15,5 @@ type Note @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
   description: String
-} 
+}
+ 

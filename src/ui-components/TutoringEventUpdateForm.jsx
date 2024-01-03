@@ -28,7 +28,6 @@ export default function TutoringEventUpdateForm(props) {
     overrides,
     ...rest
   } = props;
-  console.log("thing update got it: " + {idProp});
   const initialValues = {
     studentName: "",
     date: "",
@@ -185,6 +184,7 @@ export default function TutoringEventUpdateForm(props) {
         label="Date"
         isRequired={true}
         isReadOnly={false}
+        type="date"
         value={date}
         onChange={(e) => {
           let { value } = e.target;

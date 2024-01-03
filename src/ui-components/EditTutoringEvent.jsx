@@ -34,15 +34,10 @@ export default function EditTutoringEvent(props) {
           studentName: textFieldFourTwoFourZeroTwoSevenSixOneValue,
           date: textFieldFourTwoFourZeroTwoSevenSixTwoValue,
           conceptsCovered: textFieldFourTwoFourZeroTwoSevenSixThreeValue,
-          id: te?.id,
+          id: tutoringEvent?.id,
         },
-        id: te?.id,
-        model: TutoringEvent,
-        schema: schema,
       },
-      
     });
-
   };
   const makeOnMouseUp = useNavigateAction({ type: "url", url: "/" });
   const gobackOnClick = useNavigateAction({ type: "url", url: "/" });
