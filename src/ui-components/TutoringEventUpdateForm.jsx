@@ -136,11 +136,6 @@ const navigate = useNavigate();
               modelFields[key] = null;
             }
           });
-          const modelFieldsToSave = {
-            studentName: modelFields.studentName,
-            date: modelFields.date,
-            conceptsCovered: modelFields.conceptsCovered ?? null,
-          };
           await client.graphql({
             query: updateTutoringEvent.replaceAll("__typename", ""),
             variables: {
@@ -247,7 +242,9 @@ navigate('/');
         {...getOverrideProps(overrides, "conceptsCovered")}
       ></TextField>
       <TextField
-        label="Label"
+        label="Image"
+        isRequired={false}
+        isReadOnly={false}
         value={image}
         onChange={(e) => {
           let { value } = e.target;

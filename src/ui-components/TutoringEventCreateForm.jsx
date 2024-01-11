@@ -117,16 +117,11 @@ export default function TutoringEventCreateForm(props) {
               modelFields[key] = null;
             }
           });
-          const modelFieldsToSave = {
-            studentName: modelFields.studentName,
-            date: modelFields.date,
-            conceptsCovered: modelFields.conceptsCovered,
-          };
           await client.graphql({
             query: createTutoringEvent.replaceAll("__typename", ""),
             variables: {
               input: {
-                ...modelFieldsToSave,
+                ...modelFields,
               },
             },
           });
@@ -231,7 +226,9 @@ export default function TutoringEventCreateForm(props) {
       <Field
         errorMessage={errors.image?.errorMessage}
         hasError={errors.image?.hasError}
-        label={"Label"}
+        label={"Image"}
+        isRequired={false}
+        isReadOnly={false}
       >
         <StorageManager
           onUploadSuccess={({ key }) => {

@@ -9,6 +9,7 @@ type TutoringEvent @model @auth(rules: [{allow: public}]) {
   studentName: String!
   date: AWSDate!
   conceptsCovered: String!
+  image: String
 }
 
 type Note @model @auth(rules: [{allow: public}]) {
