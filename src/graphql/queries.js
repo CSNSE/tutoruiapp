@@ -40,6 +40,7 @@ export const getTutoringEvent = /* GraphQL */ `
       studentName
       date
       conceptsCovered
+      image
       createdAt
       updatedAt
       __typename
@@ -58,6 +59,7 @@ export const listTutoringEvents = /* GraphQL */ `
         studentName
         date
         conceptsCovered
+        image
         createdAt
         updatedAt
         __typename

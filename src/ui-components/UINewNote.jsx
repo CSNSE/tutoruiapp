@@ -12,7 +12,6 @@ import {
   Divider,
   Flex,
   Icon,
-  Image,
   Text,
   TextField,
   View,
@@ -139,20 +138,6 @@ export default function UINewNote(props) {
           padding="0px 0px 0px 0px"
           {...getOverrideProps(overrides, "Profile")}
         >
-          <Image
-            width="96px"
-            height="96px"
-            display="block"
-            gap="unset"
-            alignItems="unset"
-            justifyContent="unset"
-            shrink="0"
-            position="relative"
-            borderRadius="160px"
-            padding="0px 0px 0px 0px"
-            objectFit="cover"
-            {...getOverrideProps(overrides, "image")}
-          ></Image>
           <Text
             fontFamily="Inter"
             fontSize="16px"

@@ -9,6 +9,7 @@ export { default as CTASection } from "./CTASection";
 export { default as CheckoutPayment } from "./CheckoutPayment";
 export { default as CommentCard } from "./CommentCard";
 export { default as ContactUs } from "./ContactUs";
+export { default as CreateEvent } from "./CreateEvent";
 export { default as CreateTutoringEvent } from "./CreateTutoringEvent";
 export { default as DataRow } from "./DataRow";
 export { default as DispTutorEvent } from "./DispTutorEvent";

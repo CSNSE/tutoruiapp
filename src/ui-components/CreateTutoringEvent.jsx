@@ -12,11 +12,7 @@ import {
   mergeVariantsAndOverrides,
   useNavigateAction,
 } from "./utils";
-import { useState } from "react";
-import { generateClient } from "aws-amplify/api";
-import { createTutoringEvent } from "../graphql/mutations";
 import { Button, TextField, View } from "@aws-amplify/ui-react";
-const client = generateClient();
 export default function CreateTutoringEvent(props) {
   const { tutoringEvent, overrides: overridesProp, ...rest } = props;
   const variants = [
@@ -26,7 +22,6 @@ export default function CreateTutoringEvent(props) {
         TextField41921254: {},
         TextField41602584: {},
         "Frame 438": {},
-        make: {},
         goback: {},
         CreateTutoringEvent41602464: {},
         "Group 2": {},
@@ -34,50 +29,11 @@ export default function CreateTutoringEvent(props) {
       },
       variantValues: { property1: "Default" },
     },
-    {
-      overrides: {
-        TextField41602476: {},
-        TextField41921254: {},
-        TextField41602584: {},
-        "Frame 438": {},
-        make: {},
-        goback: {},
-        CreateTutoringEvent41602464: {},
-        "Group 2": {},
-        CreateTutoringEvent: {},
-      },
-      variantValues: { property1: "Variant2" },
-    },
   ];
   const overrides = mergeVariantsAndOverrides(
     getOverridesFromVariants(variants, props),
     overridesProp || {}
   );
-  const [
-    textFieldFourOneSixZeroTwoFourSevenSixValue,
-    setTextFieldFourOneSixZeroTwoFourSevenSixValue,
-  ] = useState("");
-  const [
-    textFieldFourOneNineTwoOneTwoFiveFourValue,
-    setTextFieldFourOneNineTwoOneTwoFiveFourValue,
-  ] = useState("");
-  const [
-    textFieldFourOneSixZeroTwoFiveEightFourValue,
-    setTextFieldFourOneSixZeroTwoFiveEightFourValue,
-  ] = useState("");
-  const makeOnClick = async () => {
-    await client.graphql({
-      query: createTutoringEvent.replaceAll("__typename", ""),
-      variables: {
-        input: {
-          studentName: textFieldFourOneSixZeroTwoFourSevenSixValue,
-          date: textFieldFourOneNineTwoOneTwoFiveFourValue,
-          conceptsCovered: textFieldFourOneSixZeroTwoFiveEightFourValue,
-        },
-      },
-    });
-  };
-  const makeOnMouseUp = useNavigateAction({ type: "url", url: "/" });
   const gobackOnClick = useNavigateAction({ type: "url", url: "/" });
   return (
     <View
@@ -145,12 +101,6 @@ export default function CreateTutoringEvent(props) {
               isDisabled={false}
               labelHidden={false}
               variation="default"
-              value={textFieldFourOneSixZeroTwoFourSevenSixValue}
-              onChange={(event) => {
-                setTextFieldFourOneSixZeroTwoFourSevenSixValue(
-                  event.target.value
-                );
-              }}
               {...getOverrideProps(overrides, "TextField41602476")}
             ></TextField>
             <TextField
@@ -165,12 +115,6 @@ export default function CreateTutoringEvent(props) {
               isDisabled={false}
               labelHidden={false}
               variation="default"
-              value={textFieldFourOneNineTwoOneTwoFiveFourValue}
-              onChange={(event) => {
-                setTextFieldFourOneNineTwoOneTwoFiveFourValue(
-                  event.target.value
-                );
-              }}
               {...getOverrideProps(overrides, "TextField41921254")}
             ></TextField>
             <TextField
@@ -184,33 +128,9 @@ export default function CreateTutoringEvent(props) {
               isDisabled={false}
               labelHidden={false}
               variation="default"
-              value={textFieldFourOneSixZeroTwoFiveEightFourValue}
-              onChange={(event) => {
-                setTextFieldFourOneSixZeroTwoFiveEightFourValue(
-                  event.target.value
-                );
-              }}
               {...getOverrideProps(overrides, "TextField41602584")}
             ></TextField>
           </View>
-          <Button
-            width="31px"
-            height="32px"
-            position="absolute"
-            top="242px"
-            left="657px"
-            size="default"
-            isDisabled={false}
-            variation="primary"
-            children="+"
-            onClick={() => {
-              makeOnClick();
-            }}
-            onMouseUp={() => {
-              makeOnMouseUp();
-            }}
-            {...getOverrideProps(overrides, "make")}
-          ></Button>
           <Button
             width="31px"
             height="32px"

@@ -6,6 +6,7 @@
 
 import * as React from "react";
 import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
+import { StorageManagerProps } from "@aws-amplify/ui-react-storage";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -25,11 +26,13 @@ export declare type TutoringEventCreateFormInputValues = {
     studentName?: string;
     date?: string;
     conceptsCovered?: string;
+    image?: string;
 };
 export declare type TutoringEventCreateFormValidationValues = {
     studentName?: ValidationFunction<string>;
     date?: ValidationFunction<string>;
     conceptsCovered?: ValidationFunction<string>;
+    image?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type TutoringEventCreateFormOverridesProps = {
@@ -37,6 +40,7 @@ export declare type TutoringEventCreateFormOverridesProps = {
     studentName?: PrimitiveOverrideProps<TextFieldProps>;
     date?: PrimitiveOverrideProps<TextFieldProps>;
     conceptsCovered?: PrimitiveOverrideProps<TextFieldProps>;
+    image?: PrimitiveOverrideProps<StorageManagerProps>;
 } & EscapeHatchProps;
 export declare type TutoringEventCreateFormProps = React.PropsWithChildren<{
     overrides?: TutoringEventCreateFormOverridesProps | undefined | null;

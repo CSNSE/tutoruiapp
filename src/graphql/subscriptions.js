@@ -46,6 +46,7 @@ export const onCreateTutoringEvent = /* GraphQL */ `
       studentName
       date
       conceptsCovered
+      image
       createdAt
       updatedAt
       __typename
@@ -61,6 +62,7 @@ export const onUpdateTutoringEvent = /* GraphQL */ `
       studentName
       date
       conceptsCovered
+      image
       createdAt
       updatedAt
       __typename
@@ -76,6 +78,7 @@ export const onDeleteTutoringEvent = /* GraphQL */ `
       studentName
       date
       conceptsCovered
+      image
       createdAt
       updatedAt
       __typename

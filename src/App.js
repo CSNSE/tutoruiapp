@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Button, ThemeProvider, withAuthenticator } from '@aws-amplify/ui-react';
-import { NavBar, TutoringEventCreateForm, TutoringEventUpdateForm, DispTutorEventCollection,EditTutoringEvent} from "./ui-components";
+import { NavBar, TutoringEventCreateForm, TutoringEventUpdateForm, DispTutorEventCollection,} from "./ui-components";
 import { createTutoringEvent } from './graphql/mutations';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { generateClient } from "aws-amplify/api";
@@ -35,7 +35,8 @@ function MyFormComponent() {
           input: {
             "studentName": updatedFields.studentName,
             "date": updatedFields.date,
-            "conceptsCovered": updatedFields.conceptsCovered
+            "conceptsCovered": updatedFields.conceptsCovered,
+            "image": updatedFields.image
           }
         }
       });
@@ -113,15 +114,10 @@ class App extends Component {
       <div className="App"><header className='App-header'>
         <Router>
           <Routes>
-          <Route exact path = '/' element={<div><NavBar/><DispTutorEventCollection/>
-          </div>} />
-          <Route exact path='/new' element={<div><NavBar/><MyFormComponent/>
-          </div>} />
-          <Route
-                exact path="/update/:cid" // Define a parameter ":id"
-                element={<EventEdit/>}
-              />
-          </Routes>
+          <Route exact path = '/' element={<div><NavBar/><DispTutorEventCollection/></div>} />
+          <Route exact path='/new' element={<div><NavBar/><MyFormComponent/></div>} />
+          <Route exact path="/update/:cid" element={<EventEdit/>}/>
+        </Routes>
         </Router>
         
       </header>
@@ -131,4 +127,4 @@ class App extends Component {
   }
 }
 
-export default withAuthenticator(App)
+export default withAuthenticator(App);

@@ -9,7 +9,7 @@ import * as React from "react";
 import { getOverrideProps, useNavigateAction } from "./utils";
 import { generateClient } from "aws-amplify/api";
 import { deleteTutoringEvent } from "../graphql/mutations";
-import { Button, Text, View } from "@aws-amplify/ui-react";
+import { Button, Image, Text, View } from "@aws-amplify/ui-react";
 const client = generateClient();
 export default function DispTutorEvent(props) {
   const { tutoringEvent, overrides, ...rest } = props;
@@ -30,7 +30,7 @@ export default function DispTutorEvent(props) {
   });
   return (
     <View
-      width="725px"
+      width="717px"
       height="176px"
       display="block"
       gap="unset"
@@ -47,7 +47,7 @@ export default function DispTutorEvent(props) {
         width="77px"
         height="32px"
         position="absolute"
-        top="118px"
+        top="110px"
         left="608px"
         backgroundColor="rgba(13,26,38,1)"
         size="default"
@@ -66,7 +66,7 @@ export default function DispTutorEvent(props) {
         width="77px"
         height="32px"
         position="absolute"
-        top="18px"
+        top="23px"
         left="608px"
         backgroundColor="rgba(13,26,38,1)"
         size="default"
@@ -93,8 +93,8 @@ export default function DispTutorEvent(props) {
         gap="unset"
         alignItems="unset"
         position="absolute"
-        top="34px"
-        left="35px"
+        top="31px"
+        left="207px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children={tutoringEvent?.studentName}
@@ -116,7 +116,7 @@ export default function DispTutorEvent(props) {
         alignItems="unset"
         position="absolute"
         top="76px"
-        left="35px"
+        left="206px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children={tutoringEvent?.date}
@@ -138,12 +138,27 @@ export default function DispTutorEvent(props) {
         alignItems="unset"
         position="absolute"
         top="118px"
-        left="35px"
+        left="207px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children={tutoringEvent?.conceptsCovered}
         {...getOverrideProps(overrides, "Concepts Covered")}
       ></Text>
+      <Image
+        width="164px"
+        height="176px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
+        position="absolute"
+        top="0px"
+        left="0px"
+        padding="0px 0px 0px 0px"
+        objectFit="cover"
+        src={tutoringEvent?.image}
+        {...getOverrideProps(overrides, "image")}
+      ></Image>
     </View>
   );
 }

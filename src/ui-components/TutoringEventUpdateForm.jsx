@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom';
 
 const client = generateClient();
 export default function TutoringEventUpdateForm(props) {
-  const navigate = useNavigate();
+const navigate = useNavigate();
   const {
     idProp,
     tutoringEvent: tutoringEventModelProp,
@@ -32,6 +32,7 @@ export default function TutoringEventUpdateForm(props) {
     studentName: "",
     date: "",
     conceptsCovered: "",
+    image: "",
   };
   const [studentName, setStudentName] = React.useState(
     initialValues.studentName
@@ -40,6 +41,7 @@ export default function TutoringEventUpdateForm(props) {
   const [conceptsCovered, setConceptsCovered] = React.useState(
     initialValues.conceptsCovered
   );
+  const [image, setImage] = React.useState(initialValues.image);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = tutoringEventRecord
@@ -48,6 +50,7 @@ export default function TutoringEventUpdateForm(props) {
     setStudentName(cleanValues.studentName);
     setDate(cleanValues.date);
     setConceptsCovered(cleanValues.conceptsCovered);
+    setImage(cleanValues.image);
     setErrors({});
   };
   const [tutoringEventRecord, setTutoringEventRecord] = React.useState(
@@ -72,6 +75,7 @@ export default function TutoringEventUpdateForm(props) {
     studentName: [{ type: "Required" }],
     date: [{ type: "Required" }],
     conceptsCovered: [],
+    image: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -102,6 +106,7 @@ export default function TutoringEventUpdateForm(props) {
           studentName,
           date,
           conceptsCovered: conceptsCovered ?? null,
+          image: image ?? null,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -131,6 +136,11 @@ export default function TutoringEventUpdateForm(props) {
               modelFields[key] = null;
             }
           });
+          const modelFieldsToSave = {
+            studentName: modelFields.studentName,
+            date: modelFields.date,
+            conceptsCovered: modelFields.conceptsCovered ?? null,
+          };
           await client.graphql({
             query: updateTutoringEvent.replaceAll("__typename", ""),
             variables: {
@@ -149,7 +159,7 @@ export default function TutoringEventUpdateForm(props) {
             onError(modelFields, messages);
           }
         }
-        navigate('/');
+navigate('/');
       }}
       {...getOverrideProps(overrides, "TutoringEventUpdateForm")}
       {...rest}
@@ -166,6 +176,7 @@ export default function TutoringEventUpdateForm(props) {
               studentName: value,
               date,
               conceptsCovered,
+              image,
             };
             const result = onChange(modelFields);
             value = result?.studentName ?? value;
@@ -193,6 +204,7 @@ export default function TutoringEventUpdateForm(props) {
               studentName,
               date: value,
               conceptsCovered,
+              image,
             };
             const result = onChange(modelFields);
             value = result?.date ?? value;
@@ -219,6 +231,7 @@ export default function TutoringEventUpdateForm(props) {
               studentName,
               date,
               conceptsCovered: value,
+              image,
             };
             const result = onChange(modelFields);
             value = result?.conceptsCovered ?? value;
@@ -233,6 +246,31 @@ export default function TutoringEventUpdateForm(props) {
         hasError={errors.conceptsCovered?.hasError}
         {...getOverrideProps(overrides, "conceptsCovered")}
       ></TextField>
+      <TextField
+        label="Label"
+        value={image}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              studentName,
+              date,
+              conceptsCovered,
+              image: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.image ?? value;
+          }
+          if (errors.image?.hasError) {
+            runValidationTasks("image", value);
+          }
+          setImage(value);
+        }}
+        onBlur={() => runValidationTasks("image", image)}
+        errorMessage={errors.image?.errorMessage}
+        hasError={errors.image?.hasError}
+        {...getOverrideProps(overrides, "image")}
+      ></TextField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}
@@ -246,7 +284,7 @@ export default function TutoringEventUpdateForm(props) {
             type="button"
             onClick={() => {
               onCancel && onCancel();
-              navigate('/');
+navigate('/');
             }}
             {...getOverrideProps(overrides, "CancelButton")}
           ></Button>

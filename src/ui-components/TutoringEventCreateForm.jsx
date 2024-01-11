@@ -7,9 +7,16 @@
 /* eslint-disable */
 import * as React from "react";
 import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
-import { fetchByPath, getOverrideProps, validateField } from "./utils";
+import { StorageManager } from "@aws-amplify/ui-react-storage";
+import {
+  fetchByPath,
+  getOverrideProps,
+  processFile,
+  validateField,
+} from "./utils";
 import { generateClient } from "aws-amplify/api";
 import { createTutoringEvent } from "../graphql/mutations";
+import { Field } from "@aws-amplify/ui-react/internal";
 const client = generateClient();
 export default function TutoringEventCreateForm(props) {
   const {
@@ -27,6 +34,7 @@ export default function TutoringEventCreateForm(props) {
     studentName: "",
     date: "",
     conceptsCovered: "",
+    image: undefined,
   };
   const [studentName, setStudentName] = React.useState(
     initialValues.studentName
@@ -35,17 +43,20 @@ export default function TutoringEventCreateForm(props) {
   const [conceptsCovered, setConceptsCovered] = React.useState(
     initialValues.conceptsCovered
   );
+  const [image, setImage] = React.useState(initialValues.image);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setStudentName(initialValues.studentName);
     setDate(initialValues.date);
     setConceptsCovered(initialValues.conceptsCovered);
+    setImage(initialValues.image);
     setErrors({});
   };
   const validations = {
     studentName: [{ type: "Required" }],
     date: [{ type: "Required" }],
     conceptsCovered: [{ type: "Required" }],
+    image: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -76,6 +87,7 @@ export default function TutoringEventCreateForm(props) {
           studentName,
           date,
           conceptsCovered,
+          image,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -105,11 +117,16 @@ export default function TutoringEventCreateForm(props) {
               modelFields[key] = null;
             }
           });
+          const modelFieldsToSave = {
+            studentName: modelFields.studentName,
+            date: modelFields.date,
+            conceptsCovered: modelFields.conceptsCovered,
+          };
           await client.graphql({
             query: createTutoringEvent.replaceAll("__typename", ""),
             variables: {
               input: {
-                ...modelFields,
+                ...modelFieldsToSave,
               },
             },
           });
@@ -141,6 +158,7 @@ export default function TutoringEventCreateForm(props) {
               studentName: value,
               date,
               conceptsCovered,
+              image,
             };
             const result = onChange(modelFields);
             value = result?.studentName ?? value;
@@ -168,6 +186,7 @@ export default function TutoringEventCreateForm(props) {
               studentName,
               date: value,
               conceptsCovered,
+              image,
             };
             const result = onChange(modelFields);
             value = result?.date ?? value;
@@ -194,6 +213,7 @@ export default function TutoringEventCreateForm(props) {
               studentName,
               date,
               conceptsCovered: value,
+              image,
             };
             const result = onChange(modelFields);
             value = result?.conceptsCovered ?? value;
@@ -208,6 +228,53 @@ export default function TutoringEventCreateForm(props) {
         hasError={errors.conceptsCovered?.hasError}
         {...getOverrideProps(overrides, "conceptsCovered")}
       ></TextField>
+      <Field
+        errorMessage={errors.image?.errorMessage}
+        hasError={errors.image?.hasError}
+        label={"Label"}
+      >
+        <StorageManager
+          onUploadSuccess={({ key }) => {
+            setImage((prev) => {
+              let value = key;
+              if (onChange) {
+                const modelFields = {
+                  studentName,
+                  date,
+                  conceptsCovered,
+                  image: value,
+                };
+                const result = onChange(modelFields);
+                value = result?.image ?? value;
+              }
+              return value;
+            });
+          }}
+          onFileRemove={({ key }) => {
+            setImage((prev) => {
+              let value = initialValues?.image;
+              if (onChange) {
+                const modelFields = {
+                  studentName,
+                  date,
+                  conceptsCovered,
+                  image: value,
+                };
+                const result = onChange(modelFields);
+                value = result?.image ?? value;
+              }
+              return value;
+            });
+          }}
+          processFile={processFile}
+          accessLevel={"private"}
+          acceptedFileTypes={[]}
+          isResumable={false}
+          showThumbnails={true}
+          maxFileCount={1}
+          {...getOverrideProps(overrides, "image")}
+        ></StorageManager>
+      </Field>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}

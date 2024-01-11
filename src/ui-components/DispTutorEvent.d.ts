@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { ButtonProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { ButtonProps, ImageProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -24,6 +24,7 @@ export declare type DispTutorEventOverridesProps = {
     "Student Name"?: PrimitiveOverrideProps<TextProps>;
     Date?: PrimitiveOverrideProps<TextProps>;
     "Concepts Covered"?: PrimitiveOverrideProps<TextProps>;
+    image?: PrimitiveOverrideProps<ImageProps>;
 } & EscapeHatchProps;
 export declare type DispTutorEventProps = React.PropsWithChildren<Partial<ViewProps> & {
     tutoringEvent?: any;

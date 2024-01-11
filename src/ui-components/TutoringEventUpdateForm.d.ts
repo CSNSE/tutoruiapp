@@ -25,11 +25,13 @@ export declare type TutoringEventUpdateFormInputValues = {
     studentName?: string;
     date?: string;
     conceptsCovered?: string;
+    image?: string;
 };
 export declare type TutoringEventUpdateFormValidationValues = {
     studentName?: ValidationFunction<string>;
     date?: ValidationFunction<string>;
     conceptsCovered?: ValidationFunction<string>;
+    image?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type TutoringEventUpdateFormOverridesProps = {
@@ -37,6 +39,7 @@ export declare type TutoringEventUpdateFormOverridesProps = {
     studentName?: PrimitiveOverrideProps<TextFieldProps>;
     date?: PrimitiveOverrideProps<TextFieldProps>;
     conceptsCovered?: PrimitiveOverrideProps<TextFieldProps>;
+    image?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type TutoringEventUpdateFormProps = React.PropsWithChildren<{
     overrides?: TutoringEventUpdateFormOverridesProps | undefined | null;

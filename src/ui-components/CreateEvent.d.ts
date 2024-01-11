@@ -17,21 +17,16 @@ export declare type Variant = {
     overrides: EscapeHatchProps;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type CreateTutoringEventOverridesProps = {
-    CreateTutoringEvent?: PrimitiveOverrideProps<ViewProps>;
-    "Group 2"?: PrimitiveOverrideProps<ViewProps>;
-    CreateTutoringEvent41602464?: PrimitiveOverrideProps<ViewProps>;
-    "Frame 438"?: PrimitiveOverrideProps<ViewProps>;
-    TextField41602476?: PrimitiveOverrideProps<TextFieldProps>;
-    TextField41921254?: PrimitiveOverrideProps<TextFieldProps>;
-    TextField41602584?: PrimitiveOverrideProps<TextFieldProps>;
+export declare type CreateEventOverridesProps = {
+    CreateEvent?: PrimitiveOverrideProps<ViewProps>;
+    TextField4258799?: PrimitiveOverrideProps<TextFieldProps>;
+    TextField4258800?: PrimitiveOverrideProps<TextFieldProps>;
+    TextField4258801?: PrimitiveOverrideProps<TextFieldProps>;
+    TextField4258821?: PrimitiveOverrideProps<TextFieldProps>;
     goback?: PrimitiveOverrideProps<ButtonProps>;
+    make?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
-export declare type CreateTutoringEventProps = React.PropsWithChildren<Partial<ViewProps> & {
-    tutoringEvent?: any;
-} & {
-    property1?: "Default";
-} & {
-    overrides?: CreateTutoringEventOverridesProps | undefined | null;
+export declare type CreateEventProps = React.PropsWithChildren<Partial<ViewProps> & {
+    overrides?: CreateEventOverridesProps | undefined | null;
 }>;
-export default function CreateTutoringEvent(props: CreateTutoringEventProps): React.ReactElement;
+export default function CreateEvent(props: CreateEventProps): React.ReactElement;

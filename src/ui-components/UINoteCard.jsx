@@ -7,7 +7,7 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "./utils";
-import { Flex, Image, Text } from "@aws-amplify/ui-react";
+import { Flex, Text } from "@aws-amplify/ui-react";
 export default function UINoteCard(props) {
   const { overrides, ...rest } = props;
   return (
@@ -24,20 +24,6 @@ export default function UINoteCard(props) {
       {...getOverrideProps(overrides, "UINoteCard")}
       {...rest}
     >
-      <Image
-        width="unset"
-        height="408px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        shrink="0"
-        alignSelf="stretch"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        objectFit="cover"
-        {...getOverrideProps(overrides, "image")}
-      ></Image>
       <Flex
         gap="16px"
         direction="column"
