@@ -11,6 +11,9 @@ import DispTutorEvent from "./DispTutorEvent";
 import { getOverrideProps } from "./utils";
 import { Collection, Pagination, Placeholder } from "@aws-amplify/ui-react";
 import { generateClient } from "aws-amplify/api";
+import { getUrl} from "aws-amplify/storage";
+
+
 const nextToken = {};
 const apiCache = {};
 const client = generateClient();
@@ -61,6 +64,20 @@ export default function DispTutorEventCollection(props) {
       ).data.listTutoringEvents;
       newCache.push(...result.items);
       newNext = result.nextToken;
+      const eventsFromAPI = result.items
+      await Promise.all(
+        eventsFromAPI.map(async (tutoringEvent) => {
+          if (tutoringEvent.image) {
+            const getUrlResult = await getUrl({
+              key: tutoringEvent.image,
+            });
+            tutoringEvent.image=getUrlResult.url;
+            console.log("url: "+ tutoringEvent.image);
+          }
+          return tutoringEvent;
+          })
+        );
+    
     }
     const cacheSlice = isPaginated
       ? newCache.slice((page - 1) * pageSize, page * pageSize)

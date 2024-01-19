@@ -11,7 +11,6 @@ import { fetchByPath, getOverrideProps, validateField } from "./utils";
 import { generateClient } from "aws-amplify/api";
 import { getTutoringEvent } from "../graphql/queries";
 import { updateTutoringEvent } from "../graphql/mutations";
-
 const client = generateClient();
 export default function TutoringEventUpdateForm(props) {
   const {

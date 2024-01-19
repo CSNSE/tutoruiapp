@@ -29,6 +29,7 @@ export default function DispTutorEvent(props) {
     url: `${"/update/"}${tutoringEvent?.id}`,
   });
   return (
+    
     <View
       width="717px"
       height="176px"
@@ -160,5 +161,6 @@ export default function DispTutorEvent(props) {
         {...getOverrideProps(overrides, "image")}
       ></Image>
     </View>
+    
   );
 }

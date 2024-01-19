@@ -11,6 +11,7 @@ import { generateClient } from "aws-amplify/api";
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import EventEdit from './EventEdit';
+import createCalendar from './calendar'
 import { getTutoringEvent } from './graphql/queries';
 
 
@@ -71,20 +72,20 @@ function MyFormComponent() {
 //   const navigate = useNavigate();
 //   const { id } = useParams(); // Use useParams hook to get the ID from the URL
 
-//   return (
-//     <div>
-//       {/* Other components or content */}
-//       <TutoringEventUpdateForm
-//         onSubmit={(fields) => {
-//           // Example function to trim all string inputs
-//           const updatedFields = {};
-//           Object.keys(fields).forEach((key) => {
-//             if (typeof fields[key] === 'string') {
-//               updatedFields[key] = fields[key].trim();
-//             } else {
-//               updatedFields[key] = fields[key];
-//             }
-//           });
+  // return (
+  //   <div>
+  //     {/* Other components or content */}
+  //     <TutoringEventUpdateForm
+  //       onSubmit={(fields) => {
+  //         // Example function to trim all string inputs
+  //         const updatedFields = {};
+  //         Object.keys(fields).forEach((key) => {
+  //           if (typeof fields[key] === 'string') {
+  //             updatedFields[key] = fields[key].trim();
+  //           } else {
+  //             updatedFields[key] = fields[key];
+  //           }
+  //         });
 
 //           // Use the ID as needed
 //           console.log('ID:', id);
@@ -117,6 +118,7 @@ class App extends Component {
           <Route exact path = '/' element={<div><NavBar/><DispTutorEventCollection/></div>} />
           <Route exact path='/new' element={<div><NavBar/><MyFormComponent/></div>} />
           <Route exact path="/update/:cid" element={<EventEdit/>}/>
+
         </Routes>
         </Router>
         
