@@ -5,18 +5,10 @@ import TutoringEventCreateForm from './ui-components/TutoringEventCreateForm';
 import { useNavigate } from 'react-router-dom';
 import { generateClient } from 'aws-amplify/api';
 import { createTutoringEvent, deleteTutoringEvent } from './graphql/mutations';
-import './App.css';
 import EventEdit from './EventEdit';
 
 const client = generateClient();
 
-function formatDate(inputDateStr) {
-  const inputDate = new Date(inputDateStr);
-  const day = inputDate.getDate().toString().padStart(2, '0');
-  const month = (inputDate.getMonth() + 1).toString().padStart(2, '0');
-  const year = inputDate.getFullYear();
-  return `${month}/${day}/${year}`;
-}
 
 function Calendar() {
   const navigate = useNavigate();
@@ -31,6 +23,13 @@ function Calendar() {
 
   const handleDayClick = async (date) => {
     try {
+
+      if (selectedDate && date.getTime() === selectedDate.getTime()) {
+        // If yes, unselect the date
+        setSelectedDate(null);
+        return;
+      }
+
       // Check if there is an existing temporary event, delete it before creating a new one
       if (tempEventId) {
         await deleteTemporaryEvent();
@@ -102,9 +101,10 @@ function Calendar() {
   };
 
   const navigateBack = () => {
+    handleCancel();
     navigate('/'); // Replace '/' with the path to DispTutorEvent
   };
-  
+
 return (
   <div>
     <h1>Calendar</h1>
