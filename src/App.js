@@ -12,8 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import EventEdit from './EventEdit';
 import { getTutoringEvent } from './graphql/queries';
-
-
+import Calendar from './Calendar';
 
 function MyFormComponent() {
   const navigate = useNavigate();
@@ -115,7 +114,7 @@ class App extends Component {
         <Router>
           <Routes>
           <Route exact path = '/' element={<div><NavBar/><DispTutorEventCollection/></div>} />
-          <Route exact path='/new' element={<div><NavBar/><MyFormComponent/></div>} />
+          <Route exact path='/new' element={<div><NavBar/><Calendar/></div>} />
           <Route exact path="/update/:cid" element={<EventEdit/>}/>
         </Routes>
         </Router>
