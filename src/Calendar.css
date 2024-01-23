@@ -1,39 +1,21 @@
-.App {
-    text-align: center;
-  }
-  
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
-  
-  .App-header {
-    background-color: white;
-    min-height: 100vh;
+/* Calendar.css */
+
+
+  .rdp {
+    --rdp-cell-size: 65px; /* Size of the day cells. */
+    --rdp-caption-font-size: 25px; /* Font size for the caption labels. */
+    --rdp-accent-color: #0000ff; /* Accent color for the background of selected days. */
+    --rdp-background-color: #e7edff; /* Background color for the hovered/focused elements. */
+    --rdp-accent-color-dark: #3003e1; /* Accent color for the background of selected days (to use in dark-mode). */
+    --rdp-background-color-dark: #180270; /* Background color for the hovered/focused elements (to use in dark-mode). */
+    --rdp-outline: 2px solid var(--rdp-accent-color); /* Outline border for focused elements */
+    --rdp-outline-selected: 3px solid var(--rdp-accent-color); /* Outline border for focused _and_ selected elements */
+    --rdp-selected-color: #fff; /* Color of selected day text */
+
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: black;
-  }
-  
-  .App-link {
-    color: #61dafb;
-  }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+  /* Add more styles as needed */
   

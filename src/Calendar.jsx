@@ -5,8 +5,8 @@ import TutoringEventCreateForm from './ui-components/TutoringEventCreateForm';
 import { useNavigate } from 'react-router-dom';
 import { generateClient } from 'aws-amplify/api';
 import { createTutoringEvent, deleteTutoringEvent } from './graphql/mutations';
-import EventEdit from './EventEdit';
-
+import EditCalendar from './calEdit';
+import eventEdit from './EventEdit';
 const client = generateClient();
 
 
@@ -46,14 +46,15 @@ function Calendar() {
             studentName: 'Student Name',
             date: formattedDate,
             conceptsCovered: 'Concepts Covered',
-            image: 'Image',
+            image: '',
           },
         },
       });
 
       // Extract the ID of the created event
       const eventId = newTutoringEvent.data.createTutoringEvent.id;
-
+      console.log(formattedDate)
+      console.log(eventId);
       // Set the temporary event ID and selected date
       setTempEventId(eventId);
       setSelectedDate(date);
@@ -114,8 +115,8 @@ return (
       <div>
         {tempEventId ? (
           // Display the EditEvent form with the ID of the new event
-            <EventEdit cid={tempEventId} onCancel={handleCancel} />
-        ) : (
+          <EditCalendar cid={tempEventId} onCancel={handleCancel} />
+          ) : (
           <>
          
           </>
