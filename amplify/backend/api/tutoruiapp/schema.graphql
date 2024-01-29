@@ -1,7 +1,14 @@
-type Todo @model @auth(rules: [{allow: public}]) {
+type Day @model @auth(rules: [{allow: public}]) {
   id: ID!
-  name: String!
-  description: String
+  TutorDay: [Tutor] @manyToMany(relationName: "TutorDay")
+}
+
+type Tutor @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Event: [TutoringEvent] @hasMany(indexName: "byTutor", fields: ["id"])
+  Email: String
+  Name: String
+  TutorDay: [Day] @manyToMany(relationName: "TutorDay")
 }
 
 type TutoringEvent @model @auth(rules: [{allow: public}]) {
@@ -10,10 +17,6 @@ type TutoringEvent @model @auth(rules: [{allow: public}]) {
   date: AWSDate!
   conceptsCovered: String!
   image: String
+  tutorID: ID! @index(name: "byTutor")
 }
-
-type Note @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  name: String!
-  description: String
-} 
+ 

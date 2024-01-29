@@ -36,7 +36,6 @@ function EditCalendar(id) {
     return (
         <div>
             <header className="App-header">
-                <NavBar />
                 <TutoringEventUpdateForm idProp={cid} onCancel={() => deleteTemporaryEvent()} onSuccess={(navToMain)} />
             </header>
         </div>
