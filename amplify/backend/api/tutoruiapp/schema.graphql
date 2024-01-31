@@ -1,12 +1,14 @@
 type Day @model @auth(rules: [{allow: public}]) {
   id: ID!
   TutorDay: [Tutor] @manyToMany(relationName: "TutorDay")
+  Date: AWSDate
+  Email: AWSEmail
 }
 
 type Tutor @model @auth(rules: [{allow: public}]) {
   id: ID!
   Event: [TutoringEvent] @hasMany(indexName: "byTutor", fields: ["id"])
-  Email: String
+  Email: AWSEmail
   Name: String
   TutorDay: [Day] @manyToMany(relationName: "TutorDay")
 }
@@ -18,5 +20,4 @@ type TutoringEvent @model @auth(rules: [{allow: public}]) {
   conceptsCovered: String!
   image: String
   tutorID: ID! @index(name: "byTutor")
-}
- 
+} 

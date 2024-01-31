@@ -5,6 +5,7 @@
  **************************************************************************/
 
 export { default as Ampligram } from "./Ampligram";
+export { default as AssignDay } from "./AssignDay";
 export { default as CTASection } from "./CTASection";
 export { default as CheckoutPayment } from "./CheckoutPayment";
 export { default as CommentCard } from "./CommentCard";

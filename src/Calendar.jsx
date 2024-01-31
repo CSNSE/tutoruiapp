@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
-import TutoringEventCreateForm from './ui-components/TutoringEventCreateForm';
 import { useNavigate } from 'react-router-dom';
 import { generateClient } from 'aws-amplify/api';
 import { createTutoringEvent, deleteTutoringEvent } from './graphql/mutations';
 import EditCalendar from './calEdit';
-import eventEdit from './EventEdit';
 const client = generateClient();
 
 

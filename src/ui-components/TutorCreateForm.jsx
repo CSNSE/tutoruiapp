@@ -35,7 +35,7 @@ export default function TutorCreateForm(props) {
     setErrors({});
   };
   const validations = {
-    Email: [],
+    Email: [{ type: "Email" }],
     Name: [],
   };
   const runValidationTasks = async (

@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { GridProps } from "@aws-amplify/ui-react";
+import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -21,11 +21,19 @@ export declare type ValidationResponse = {
     errorMessage?: string;
 };
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
-export declare type DayCreateFormInputValues = {};
-export declare type DayCreateFormValidationValues = {};
+export declare type DayCreateFormInputValues = {
+    Date?: string;
+    Email?: string;
+};
+export declare type DayCreateFormValidationValues = {
+    Date?: ValidationFunction<string>;
+    Email?: ValidationFunction<string>;
+};
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type DayCreateFormOverridesProps = {
     DayCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
+    Date?: PrimitiveOverrideProps<TextFieldProps>;
+    Email?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type DayCreateFormProps = React.PropsWithChildren<{
     overrides?: DayCreateFormOverridesProps | undefined | null;

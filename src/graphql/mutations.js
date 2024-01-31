@@ -1,45 +1,120 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createTodo = /* GraphQL */ `
-  mutation CreateTodo(
-    $input: CreateTodoInput!
-    $condition: ModelTodoConditionInput
+export const createDay = /* GraphQL */ `
+  mutation CreateDay(
+    $input: CreateDayInput!
+    $condition: ModelDayConditionInput
   ) {
-    createTodo(input: $input, condition: $condition) {
+    createDay(input: $input, condition: $condition) {
       id
-      name
-      description
+      TutorDay {
+        nextToken
+        __typename
+      }
       createdAt
       updatedAt
       __typename
     }
   }
 `;
-export const updateTodo = /* GraphQL */ `
-  mutation UpdateTodo(
-    $input: UpdateTodoInput!
-    $condition: ModelTodoConditionInput
+export const updateDay = /* GraphQL */ `
+  mutation UpdateDay(
+    $input: UpdateDayInput!
+    $condition: ModelDayConditionInput
   ) {
-    updateTodo(input: $input, condition: $condition) {
+    updateDay(input: $input, condition: $condition) {
       id
-      name
-      description
+      TutorDay {
+        nextToken
+        __typename
+      }
       createdAt
       updatedAt
       __typename
     }
   }
 `;
-export const deleteTodo = /* GraphQL */ `
-  mutation DeleteTodo(
-    $input: DeleteTodoInput!
-    $condition: ModelTodoConditionInput
+export const deleteDay = /* GraphQL */ `
+  mutation DeleteDay(
+    $input: DeleteDayInput!
+    $condition: ModelDayConditionInput
   ) {
-    deleteTodo(input: $input, condition: $condition) {
+    deleteDay(input: $input, condition: $condition) {
       id
-      name
-      description
+      TutorDay {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const createTutor = /* GraphQL */ `
+  mutation CreateTutor(
+    $input: CreateTutorInput!
+    $condition: ModelTutorConditionInput
+  ) {
+    createTutor(input: $input, condition: $condition) {
+      id
+      Event {
+        nextToken
+        __typename
+      }
+      Email
+      Name
+      TutorDay {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const updateTutor = /* GraphQL */ `
+  mutation UpdateTutor(
+    $input: UpdateTutorInput!
+    $condition: ModelTutorConditionInput
+  ) {
+    updateTutor(input: $input, condition: $condition) {
+      id
+      Event {
+        nextToken
+        __typename
+      }
+      Email
+      Name
+      TutorDay {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const deleteTutor = /* GraphQL */ `
+  mutation DeleteTutor(
+    $input: DeleteTutorInput!
+    $condition: ModelTutorConditionInput
+  ) {
+    deleteTutor(input: $input, condition: $condition) {
+      id
+      Event {
+        nextToken
+        __typename
+      }
+      Email
+      Name
+      TutorDay {
+        nextToken
+        __typename
+      }
       createdAt
       updatedAt
       __typename
@@ -57,6 +132,7 @@ export const createTutoringEvent = /* GraphQL */ `
       date
       conceptsCovered
       image
+      tutorID
       createdAt
       updatedAt
       __typename
@@ -74,6 +150,7 @@ export const updateTutoringEvent = /* GraphQL */ `
       date
       conceptsCovered
       image
+      tutorID
       createdAt
       updatedAt
       __typename
@@ -91,51 +168,94 @@ export const deleteTutoringEvent = /* GraphQL */ `
       date
       conceptsCovered
       image
+      tutorID
       createdAt
       updatedAt
       __typename
     }
   }
 `;
-export const createNote = /* GraphQL */ `
-  mutation CreateNote(
-    $input: CreateNoteInput!
-    $condition: ModelNoteConditionInput
+export const createTutorDay = /* GraphQL */ `
+  mutation CreateTutorDay(
+    $input: CreateTutorDayInput!
+    $condition: ModelTutorDayConditionInput
   ) {
-    createNote(input: $input, condition: $condition) {
+    createTutorDay(input: $input, condition: $condition) {
       id
-      name
-      description
+      dayId
+      tutorId
+      day {
+        id
+        createdAt
+        updatedAt
+        __typename
+      }
+      tutor {
+        id
+        Email
+        Name
+        createdAt
+        updatedAt
+        __typename
+      }
       createdAt
       updatedAt
       __typename
     }
   }
 `;
-export const updateNote = /* GraphQL */ `
-  mutation UpdateNote(
-    $input: UpdateNoteInput!
-    $condition: ModelNoteConditionInput
+export const updateTutorDay = /* GraphQL */ `
+  mutation UpdateTutorDay(
+    $input: UpdateTutorDayInput!
+    $condition: ModelTutorDayConditionInput
   ) {
-    updateNote(input: $input, condition: $condition) {
+    updateTutorDay(input: $input, condition: $condition) {
       id
-      name
-      description
+      dayId
+      tutorId
+      day {
+        id
+        createdAt
+        updatedAt
+        __typename
+      }
+      tutor {
+        id
+        Email
+        Name
+        createdAt
+        updatedAt
+        __typename
+      }
       createdAt
       updatedAt
       __typename
     }
   }
 `;
-export const deleteNote = /* GraphQL */ `
-  mutation DeleteNote(
-    $input: DeleteNoteInput!
-    $condition: ModelNoteConditionInput
+export const deleteTutorDay = /* GraphQL */ `
+  mutation DeleteTutorDay(
+    $input: DeleteTutorDayInput!
+    $condition: ModelTutorDayConditionInput
   ) {
-    deleteNote(input: $input, condition: $condition) {
+    deleteTutorDay(input: $input, condition: $condition) {
       id
-      name
-      description
+      dayId
+      tutorId
+      day {
+        id
+        createdAt
+        updatedAt
+        __typename
+      }
+      tutor {
+        id
+        Email
+        Name
+        createdAt
+        updatedAt
+        __typename
+      }
       createdAt
       updatedAt
       __typename

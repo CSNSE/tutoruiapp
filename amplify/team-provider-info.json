@@ -12,14 +12,14 @@
       "AmplifyAppId": "d1qpdj5ao982pp"
     },
     "categories": {
-      "auth": {
-        "tutoruiapp310d3010": {}
-      },
       "api": {
         "tutoruiapp": {}
       },
       "storage": {
         "s3tutoruiappstorage71b7c7a4": {}
+      },
+      "auth": {
+        "tutoruiapp": {}
       }
     }
   }

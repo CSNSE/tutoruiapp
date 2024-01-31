@@ -56,7 +56,7 @@ export default function TutorUpdateForm(props) {
   }, [idProp, tutorModelProp]);
   React.useEffect(resetStateValues, [tutorRecord]);
   const validations = {
-    Email: [],
+    Email: [{ type: "Email" }],
     Name: [],
   };
   const runValidationTasks = async (

@@ -6,7 +6,7 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Button, Flex, Grid } from "@aws-amplify/ui-react";
+import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
 import { fetchByPath, getOverrideProps, validateField } from "./utils";
 import { generateClient } from "aws-amplify/api";
 import { createDay } from "../graphql/mutations";
@@ -22,12 +22,22 @@ export default function DayCreateForm(props) {
     overrides,
     ...rest
   } = props;
-  const initialValues = {};
+  const initialValues = {
+    Date: "",
+    Email: "",
+  };
+  const [Date, setDate] = React.useState(initialValues.Date);
+  const [Email, setEmail] = React.useState(initialValues.Email);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
+    setDate(initialValues.Date);
+    setEmail(initialValues.Email);
     setErrors({});
   };
-  const validations = {};
+  const validations = {
+    Date: [],
+    Email: [{ type: "Email" }],
+  };
   const runValidationTasks = async (
     fieldName,
     currentValue,
@@ -53,7 +63,10 @@ export default function DayCreateForm(props) {
       padding="20px"
       onSubmit={async (event) => {
         event.preventDefault();
-        let modelFields = {};
+        let modelFields = {
+          Date,
+          Email,
+        };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
             if (Array.isArray(modelFields[fieldName])) {
@@ -106,6 +119,57 @@ export default function DayCreateForm(props) {
       {...getOverrideProps(overrides, "DayCreateForm")}
       {...rest}
     >
+      <TextField
+        label="Date"
+        isRequired={false}
+        isReadOnly={false}
+        type="date"
+        value={Date}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              Date: value,
+              Email,
+            };
+            const result = onChange(modelFields);
+            value = result?.Date ?? value;
+          }
+          if (errors.Date?.hasError) {
+            runValidationTasks("Date", value);
+          }
+          setDate(value);
+        }}
+        onBlur={() => runValidationTasks("Date", Date)}
+        errorMessage={errors.Date?.errorMessage}
+        hasError={errors.Date?.hasError}
+        {...getOverrideProps(overrides, "Date")}
+      ></TextField>
+      <TextField
+        label="Email"
+        isRequired={false}
+        isReadOnly={false}
+        value={Email}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              Date,
+              Email: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.Email ?? value;
+          }
+          if (errors.Email?.hasError) {
+            runValidationTasks("Email", value);
+          }
+          setEmail(value);
+        }}
+        onBlur={() => runValidationTasks("Email", Email)}
+        errorMessage={errors.Email?.errorMessage}
+        hasError={errors.Email?.hasError}
+        {...getOverrideProps(overrides, "Email")}
+      ></TextField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}

@@ -1,36 +1,102 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateTodo = /* GraphQL */ `
-  subscription OnCreateTodo($filter: ModelSubscriptionTodoFilterInput) {
-    onCreateTodo(filter: $filter) {
+export const onCreateDay = /* GraphQL */ `
+  subscription OnCreateDay($filter: ModelSubscriptionDayFilterInput) {
+    onCreateDay(filter: $filter) {
       id
-      name
-      description
+      TutorDay {
+        nextToken
+        __typename
+      }
       createdAt
       updatedAt
       __typename
     }
   }
 `;
-export const onUpdateTodo = /* GraphQL */ `
-  subscription OnUpdateTodo($filter: ModelSubscriptionTodoFilterInput) {
-    onUpdateTodo(filter: $filter) {
+export const onUpdateDay = /* GraphQL */ `
+  subscription OnUpdateDay($filter: ModelSubscriptionDayFilterInput) {
+    onUpdateDay(filter: $filter) {
       id
-      name
-      description
+      TutorDay {
+        nextToken
+        __typename
+      }
       createdAt
       updatedAt
       __typename
     }
   }
 `;
-export const onDeleteTodo = /* GraphQL */ `
-  subscription OnDeleteTodo($filter: ModelSubscriptionTodoFilterInput) {
-    onDeleteTodo(filter: $filter) {
+export const onDeleteDay = /* GraphQL */ `
+  subscription OnDeleteDay($filter: ModelSubscriptionDayFilterInput) {
+    onDeleteDay(filter: $filter) {
       id
-      name
-      description
+      TutorDay {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onCreateTutor = /* GraphQL */ `
+  subscription OnCreateTutor($filter: ModelSubscriptionTutorFilterInput) {
+    onCreateTutor(filter: $filter) {
+      id
+      Event {
+        nextToken
+        __typename
+      }
+      Email
+      Name
+      TutorDay {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onUpdateTutor = /* GraphQL */ `
+  subscription OnUpdateTutor($filter: ModelSubscriptionTutorFilterInput) {
+    onUpdateTutor(filter: $filter) {
+      id
+      Event {
+        nextToken
+        __typename
+      }
+      Email
+      Name
+      TutorDay {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onDeleteTutor = /* GraphQL */ `
+  subscription OnDeleteTutor($filter: ModelSubscriptionTutorFilterInput) {
+    onDeleteTutor(filter: $filter) {
+      id
+      Event {
+        nextToken
+        __typename
+      }
+      Email
+      Name
+      TutorDay {
+        nextToken
+        __typename
+      }
       createdAt
       updatedAt
       __typename
@@ -47,6 +113,7 @@ export const onCreateTutoringEvent = /* GraphQL */ `
       date
       conceptsCovered
       image
+      tutorID
       createdAt
       updatedAt
       __typename
@@ -63,6 +130,7 @@ export const onUpdateTutoringEvent = /* GraphQL */ `
       date
       conceptsCovered
       image
+      tutorID
       createdAt
       updatedAt
       __typename
@@ -79,42 +147,85 @@ export const onDeleteTutoringEvent = /* GraphQL */ `
       date
       conceptsCovered
       image
+      tutorID
       createdAt
       updatedAt
       __typename
     }
   }
 `;
-export const onCreateNote = /* GraphQL */ `
-  subscription OnCreateNote($filter: ModelSubscriptionNoteFilterInput) {
-    onCreateNote(filter: $filter) {
+export const onCreateTutorDay = /* GraphQL */ `
+  subscription OnCreateTutorDay($filter: ModelSubscriptionTutorDayFilterInput) {
+    onCreateTutorDay(filter: $filter) {
       id
-      name
-      description
+      dayId
+      tutorId
+      day {
+        id
+        createdAt
+        updatedAt
+        __typename
+      }
+      tutor {
+        id
+        Email
+        Name
+        createdAt
+        updatedAt
+        __typename
+      }
       createdAt
       updatedAt
       __typename
     }
   }
 `;
-export const onUpdateNote = /* GraphQL */ `
-  subscription OnUpdateNote($filter: ModelSubscriptionNoteFilterInput) {
-    onUpdateNote(filter: $filter) {
+export const onUpdateTutorDay = /* GraphQL */ `
+  subscription OnUpdateTutorDay($filter: ModelSubscriptionTutorDayFilterInput) {
+    onUpdateTutorDay(filter: $filter) {
       id
-      name
-      description
+      dayId
+      tutorId
+      day {
+        id
+        createdAt
+        updatedAt
+        __typename
+      }
+      tutor {
+        id
+        Email
+        Name
+        createdAt
+        updatedAt
+        __typename
+      }
       createdAt
       updatedAt
       __typename
     }
   }
 `;
-export const onDeleteNote = /* GraphQL */ `
-  subscription OnDeleteNote($filter: ModelSubscriptionNoteFilterInput) {
-    onDeleteNote(filter: $filter) {
+export const onDeleteTutorDay = /* GraphQL */ `
+  subscription OnDeleteTutorDay($filter: ModelSubscriptionTutorDayFilterInput) {
+    onDeleteTutorDay(filter: $filter) {
       id
-      name
-      description
+      dayId
+      tutorId
+      day {
+        id
+        createdAt
+        updatedAt
+        __typename
+      }
+      tutor {
+        id
+        Email
+        Name
+        createdAt
+        updatedAt
+        __typename
+      }
       createdAt
       updatedAt
       __typename
