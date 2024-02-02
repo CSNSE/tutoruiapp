@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { FlexProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -17,14 +17,11 @@ export declare type Variant = {
     overrides: EscapeHatchProps;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type NoteNavbarOverridesProps = {
-    NoteNavbar?: PrimitiveOverrideProps<FlexProps>;
-    "Name:"?: PrimitiveOverrideProps<TextProps>;
-    "Frame 321"?: PrimitiveOverrideProps<FlexProps>;
-    "Total Tutoring Hours Logged:"?: PrimitiveOverrideProps<TextProps>;
-    MyIcon?: PrimitiveOverrideProps<ViewProps>;
+export declare type UpcomingOverridesProps = {
+    Upcoming?: PrimitiveOverrideProps<ViewProps>;
+    "Upcoming Events"?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
-export declare type NoteNavbarProps = React.PropsWithChildren<Partial<FlexProps> & {
-    overrides?: NoteNavbarOverridesProps | undefined | null;
+export declare type UpcomingProps = React.PropsWithChildren<Partial<ViewProps> & {
+    overrides?: UpcomingOverridesProps | undefined | null;
 }>;
-export default function NoteNavbar(props: NoteNavbarProps): React.ReactElement;
+export default function Upcoming(props: UpcomingProps): React.ReactElement;

@@ -7,9 +7,7 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "./utils";
-import LogoWithText from "./LogoWithText";
-import MyIcon from "./MyIcon";
-import { Flex, Image, Text } from "@aws-amplify/ui-react";
+import { Flex, Image, Text, View } from "@aws-amplify/ui-react";
 export default function NavBarSide(props) {
   const { overrides, ...rest } = props;
   return (
@@ -55,19 +53,11 @@ export default function NavBarSide(props) {
           padding="0px 32px 0px 32px"
           {...getOverrideProps(overrides, "Frame 32141172120")}
         >
-          <LogoWithText
+          <View
             width="127.88px"
             height="18.91px"
-            display="block"
-            gap="unset"
-            alignItems="unset"
-            justifyContent="unset"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            color="brand"
             {...getOverrideProps(overrides, "LogoWithText")}
-          ></LogoWithText>
+          ></View>
           <Flex
             gap="16px"
             direction="column"
@@ -106,20 +96,11 @@ export default function NavBarSide(props) {
                 backgroundColor="rgba(174,230,254,1)"
                 {...getOverrideProps(overrides, "icon41172124")}
               >
-                <MyIcon
+                <View
                   width="18px"
                   height="18px"
-                  display="block"
-                  gap="unset"
-                  alignItems="unset"
-                  justifyContent="unset"
-                  overflow="hidden"
-                  shrink="0"
-                  position="relative"
-                  padding="0px 0px 0px 0px"
-                  type="home"
                   {...getOverrideProps(overrides, "MyIcon41172125")}
-                ></MyIcon>
+                ></View>
               </Flex>
               <Text
                 fontFamily="Inter"
@@ -204,20 +185,11 @@ export default function NavBarSide(props) {
                 backgroundColor="rgba(174,230,254,1)"
                 {...getOverrideProps(overrides, "icon41172130")}
               >
-                <MyIcon
+                <View
                   width="18px"
                   height="18px"
-                  display="block"
-                  gap="unset"
-                  alignItems="unset"
-                  justifyContent="unset"
-                  overflow="hidden"
-                  shrink="0"
-                  position="relative"
-                  padding="0px 0px 0px 0px"
-                  type="content"
                   {...getOverrideProps(overrides, "MyIcon41172131")}
-                ></MyIcon>
+                ></View>
               </Flex>
               <Text
                 fontFamily="Inter"
@@ -268,20 +240,11 @@ export default function NavBarSide(props) {
                 backgroundColor="rgba(174,230,254,1)"
                 {...getOverrideProps(overrides, "icon41172134")}
               >
-                <MyIcon
+                <View
                   width="18px"
                   height="18px"
-                  display="block"
-                  gap="unset"
-                  alignItems="unset"
-                  justifyContent="unset"
-                  overflow="hidden"
-                  shrink="0"
-                  position="relative"
-                  padding="0px 0px 0px 0px"
-                  type="group"
                   {...getOverrideProps(overrides, "MyIcon41172135")}
-                ></MyIcon>
+                ></View>
               </Flex>
               <Text
                 fontFamily="Inter"
@@ -332,20 +295,11 @@ export default function NavBarSide(props) {
                 backgroundColor="rgba(174,230,254,1)"
                 {...getOverrideProps(overrides, "icon41172138")}
               >
-                <MyIcon
+                <View
                   width="18px"
                   height="18px"
-                  display="block"
-                  gap="unset"
-                  alignItems="unset"
-                  justifyContent="unset"
-                  overflow="hidden"
-                  shrink="0"
-                  position="relative"
-                  padding="0px 0px 0px 0px"
-                  type="file"
                   {...getOverrideProps(overrides, "MyIcon41172139")}
-                ></MyIcon>
+                ></View>
               </Flex>
               <Text
                 fontFamily="Inter"
@@ -430,20 +384,11 @@ export default function NavBarSide(props) {
                 backgroundColor="rgba(174,230,254,1)"
                 {...getOverrideProps(overrides, "icon41172144")}
               >
-                <MyIcon
+                <View
                   width="18px"
                   height="18px"
-                  display="block"
-                  gap="unset"
-                  alignItems="unset"
-                  justifyContent="unset"
-                  overflow="hidden"
-                  shrink="0"
-                  position="relative"
-                  padding="0px 0px 0px 0px"
-                  type="data"
                   {...getOverrideProps(overrides, "MyIcon41172145")}
-                ></MyIcon>
+                ></View>
               </Flex>
               <Text
                 fontFamily="Inter"
@@ -494,20 +439,11 @@ export default function NavBarSide(props) {
                 backgroundColor="rgba(174,230,254,1)"
                 {...getOverrideProps(overrides, "icon41172148")}
               >
-                <MyIcon
+                <View
                   width="18px"
                   height="18px"
-                  display="block"
-                  gap="unset"
-                  alignItems="unset"
-                  justifyContent="unset"
-                  overflow="hidden"
-                  shrink="0"
-                  position="relative"
-                  padding="0px 0px 0px 0px"
-                  type="storage"
                   {...getOverrideProps(overrides, "MyIcon41172149")}
-                ></MyIcon>
+                ></View>
               </Flex>
               <Text
                 fontFamily="Inter"
@@ -558,20 +494,11 @@ export default function NavBarSide(props) {
                 backgroundColor="rgba(174,230,254,1)"
                 {...getOverrideProps(overrides, "icon41172152")}
               >
-                <MyIcon
+                <View
                   width="18px"
                   height="18px"
-                  display="block"
-                  gap="unset"
-                  alignItems="unset"
-                  justifyContent="unset"
-                  overflow="hidden"
-                  shrink="0"
-                  position="relative"
-                  padding="0px 0px 0px 0px"
-                  type="authentication"
                   {...getOverrideProps(overrides, "MyIcon41172153")}
-                ></MyIcon>
+                ></View>
               </Flex>
               <Text
                 fontFamily="Inter"
@@ -687,20 +614,11 @@ export default function NavBarSide(props) {
                 ></Text>
               </Flex>
             </Flex>
-            <MyIcon
+            <View
               width="24px"
               height="24px"
-              display="block"
-              gap="unset"
-              alignItems="unset"
-              justifyContent="unset"
-              overflow="hidden"
-              shrink="0"
-              position="relative"
-              padding="0px 0px 0px 0px"
-              type="settings"
               {...getOverrideProps(overrides, "MyIcon41172161")}
-            ></MyIcon>
+            ></View>
           </Flex>
         </Flex>
       </Flex>

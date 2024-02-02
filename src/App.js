@@ -4,8 +4,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Button, ThemeProvider, withAuthenticator } from '@aws-amplify/ui-react';
-import { NavBar, TutoringEventCreateForm, TutoringEventUpdateForm, DispTutorEventCollection,} from "./ui-components";
-import { createTutoringEvent, deleteTutoringEvent } from './graphql/mutations';
+import { NavBar, TutoringEventCreateForm, TutoringEventUpdateForm, DispTutorEventCollection} from "./ui-components";
+import { createTutoringEvent, deleteTutoringEvent, createDay, deleteDay } from './graphql/mutations';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { generateClient } from "aws-amplify/api";
 import { useNavigate } from 'react-router-dom';
@@ -15,28 +15,16 @@ import { getTutoringEvent } from './graphql/queries';
 import Calendar from './Calendar';
 import './Calendar.css'
 import { listTutoringEvents } from './graphql/queries';
-
-const client = generateClient()
-
+const client = generateClient();
 class App extends Component {
-  // componentDidMount() {
-  //   this.handleDeleteAll();
-  // }
-
-  // handleDeleteAll = async () => {
-  //   await deleteAll();
-  // };
-
-  handleSignOut = () => {};
-
   render() {
     return (
       <div className="App">
         <header className='App-header'>
           <Router>
             <Routes>
-              <Route exact path = '/' element={<div><NavBar/><DispTutorEventCollection/></div>} />
-              <Route exact path='/new' element={<div><NavBar /><Calendar /></div>} />
+              <Route exact path='/' element={<div><NavBar/><DispTutorEventCollection/></div>}/>
+              <Route exact path='/new' element={<div><NavBar /><MyFormComponent    /></div>} />
               <Route exact path="/update/:cid" element={<EventEdit />} />
             </Routes>
           </Router>
@@ -46,8 +34,8 @@ class App extends Component {
   }
 }
 
-
 export default withAuthenticator(App);
+
 function MyFormComponent() {
   const navigate = useNavigate();
   
@@ -96,40 +84,42 @@ function MyFormComponent() {
   );
 }
 
+  
 
 
-function MyUpdateComponent() {
-  const navigate = useNavigate();
-  const { id } = useParams(); // Use useParams hook to get the ID from the URL
 
-  return (
-    <div>
-      {/* Other components or content */}
-      <TutoringEventUpdateForm
-        onSubmit={(fields) => {
-          // Example function to trim all string inputs
-          const updatedFields = {};
-          Object.keys(fields).forEach((key) => {
-            if (typeof fields[key] === 'string') {
-              updatedFields[key] = fields[key].trim();
-            } else {
-              updatedFields[key] = fields[key];
-            }
-          });
+// function MyUpdateComponent() {
+//   const navigate = useNavigate();
+//   const { id } = useParams(); // Use useParams hook to get the ID from the URL
 
-          // Use the ID as needed
-          console.log('ID:', id);
+//   return (
+//     <div>
+//       {/* Other components or content */}
+//       <TutoringEventUpdateForm
+//         onSubmit={(fields) => {
+//           // Example function to trim all string inputs
+//           const updatedFields = {};
+//           Object.keys(fields).forEach((key) => {
+//             if (typeof fields[key] === 'string') {
+//               updatedFields[key] = fields[key].trim();
+//             } else {
+//               updatedFields[key] = fields[key];
+//             }
+//           });
 
-          // Additional logic or API calls if needed
+//           // Use the ID as needed
+//           console.log('ID:', id);
 
-          // Use navigate to go to a different page (replace '/' with your desired path)
-          navigate('/');
-        }}
-        onCancel={() => navigate('/')}
-      />
-    </div>
-  );
-}
+//           // Additional logic or API calls if needed
+
+//           // Use navigate to go to a different page (replace '/' with your desired path)
+//           navigate('/');
+//         }}
+//         onCancel={() => navigate('/')}
+//       />
+//     </div>
+//   );
+// }
 
 // ... (the rest of your code)
 

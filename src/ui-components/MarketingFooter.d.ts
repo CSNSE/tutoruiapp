@@ -6,7 +6,6 @@
 
 import * as React from "react";
 import { FlexProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
-import { LogoWithTextProps } from "./LogoWithText";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -48,7 +47,7 @@ export declare type MarketingFooterOverridesProps = {
     Blog?: PrimitiveOverrideProps<TextProps>;
     Divider41172039?: PrimitiveOverrideProps<ViewProps>;
     "Frame 433"?: PrimitiveOverrideProps<FlexProps>;
-    LogoWithText?: LogoWithTextProps;
+    LogoWithText?: PrimitiveOverrideProps<ViewProps>;
     "\u00A9 2023 AWS Amplify UI. All rights reserved."?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
 export declare type MarketingFooterProps = React.PropsWithChildren<Partial<FlexProps> & {

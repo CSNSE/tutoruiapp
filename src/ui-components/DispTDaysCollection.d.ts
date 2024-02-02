@@ -5,7 +5,8 @@
  **************************************************************************/
 
 import * as React from "react";
-import { FlexProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { DispTDaysProps } from "./DispTDays";
+import { CollectionProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -17,19 +18,17 @@ export declare type Variant = {
     overrides: EscapeHatchProps;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type NoteCardOverridesProps = {
-    NoteCard?: PrimitiveOverrideProps<FlexProps>;
-    "Card Area"?: PrimitiveOverrideProps<FlexProps>;
-    "Text Group"?: PrimitiveOverrideProps<FlexProps>;
-    "$99 USD"?: PrimitiveOverrideProps<TextProps>;
-    "4bds 3 ba 2,530 sqft - Active"?: PrimitiveOverrideProps<TextProps>;
-    "832 34th Ave, Seattle, WA 98122"?: PrimitiveOverrideProps<TextProps>;
-    "Frame 439"?: PrimitiveOverrideProps<ViewProps>;
-    MyIcon?: PrimitiveOverrideProps<ViewProps>;
+export declare type DispTDaysCollectionOverridesProps = {
+    DispTDaysCollection?: PrimitiveOverrideProps<CollectionProps>;
+    DispTDays?: DispTDaysProps;
 } & EscapeHatchProps;
-export declare type NoteCardProps = React.PropsWithChildren<Partial<FlexProps> & {
-    tutoringEvent?: any;
+export declare type DispTDaysCollectionProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
+    items?: any[];
+    overrideItems?: (collectionItem: {
+        item: any;
+        index: number;
+    }) => DispTDaysProps;
 } & {
-    overrides?: NoteCardOverridesProps | undefined | null;
+    overrides?: DispTDaysCollectionOverridesProps | undefined | null;
 }>;
-export default function NoteCard(props: NoteCardProps): React.ReactElement;
+export default function DispTDaysCollection(props: DispTDaysCollectionProps): React.ReactElement;

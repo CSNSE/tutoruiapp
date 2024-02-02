@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { ButtonProps, TextFieldProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -17,14 +17,14 @@ export declare type Variant = {
     overrides: EscapeHatchProps;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type AssignDayOverridesProps = {
-    AssignDay?: PrimitiveOverrideProps<ViewProps>;
-    TextField4416737?: PrimitiveOverrideProps<TextFieldProps>;
-    TextField4416746?: PrimitiveOverrideProps<TextFieldProps>;
+export declare type DispTDaysOverridesProps = {
+    DispTDays?: PrimitiveOverrideProps<ViewProps>;
     Date?: PrimitiveOverrideProps<TextProps>;
-    Button?: PrimitiveOverrideProps<ButtonProps>;
+    Time?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
-export declare type AssignDayProps = React.PropsWithChildren<Partial<ViewProps> & {
-    overrides?: AssignDayOverridesProps | undefined | null;
+export declare type DispTDaysProps = React.PropsWithChildren<Partial<ViewProps> & {
+    day?: any;
+} & {
+    overrides?: DispTDaysOverridesProps | undefined | null;
 }>;
-export default function AssignDay(props: AssignDayProps): React.ReactElement;
+export default function DispTDays(props: DispTDaysProps): React.ReactElement;

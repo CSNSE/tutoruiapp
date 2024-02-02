@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
+import { GridProps, SelectFieldProps, TextFieldProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -21,32 +21,31 @@ export declare type ValidationResponse = {
     errorMessage?: string;
 };
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
-export declare type DayUpdateFormInputValues = {
+export declare type DayMakeInputValues = {
     Date?: string;
-    Email?: string;
     Time?: string;
+    Email?: string;
 };
-export declare type DayUpdateFormValidationValues = {
+export declare type DayMakeValidationValues = {
     Date?: ValidationFunction<string>;
-    Email?: ValidationFunction<string>;
     Time?: ValidationFunction<string>;
+    Email?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type DayUpdateFormOverridesProps = {
-    DayUpdateFormGrid?: PrimitiveOverrideProps<GridProps>;
+export declare type DayMakeOverridesProps = {
+    DayMakeGrid?: PrimitiveOverrideProps<GridProps>;
     Date?: PrimitiveOverrideProps<TextFieldProps>;
+    Time?: PrimitiveOverrideProps<SelectFieldProps>;
     Email?: PrimitiveOverrideProps<TextFieldProps>;
-    Time?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
-export declare type DayUpdateFormProps = React.PropsWithChildren<{
-    overrides?: DayUpdateFormOverridesProps | undefined | null;
+export declare type DayMakeProps = React.PropsWithChildren<{
+    overrides?: DayMakeOverridesProps | undefined | null;
 } & {
-    id?: string;
-    day?: any;
-    onSubmit?: (fields: DayUpdateFormInputValues) => DayUpdateFormInputValues;
-    onSuccess?: (fields: DayUpdateFormInputValues) => void;
-    onError?: (fields: DayUpdateFormInputValues, errorMessage: string) => void;
-    onChange?: (fields: DayUpdateFormInputValues) => DayUpdateFormInputValues;
-    onValidate?: DayUpdateFormValidationValues;
+    clearOnSuccess?: boolean;
+    onSubmit?: (fields: DayMakeInputValues) => DayMakeInputValues;
+    onSuccess?: (fields: DayMakeInputValues) => void;
+    onError?: (fields: DayMakeInputValues, errorMessage: string) => void;
+    onChange?: (fields: DayMakeInputValues) => DayMakeInputValues;
+    onValidate?: DayMakeValidationValues;
 } & React.CSSProperties>;
-export default function DayUpdateForm(props: DayUpdateFormProps): React.ReactElement;
+export default function DayMake(props: DayMakeProps): React.ReactElement;

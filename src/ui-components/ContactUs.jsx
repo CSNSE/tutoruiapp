@@ -7,8 +7,7 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps, useAuthSignOutAction } from "./utils";
-import { Button, Flex, Text } from "@aws-amplify/ui-react";
-import MyIcon from "./MyIcon";
+import { Button, Flex, Text, View } from "@aws-amplify/ui-react";
 export default function ContactUs(props) {
   const { overrides, ...rest } = props;
   const buttonFourOneFiveSevenTwoFourFourEightOnClick = useAuthSignOutAction({
@@ -121,20 +120,11 @@ export default function ContactUs(props) {
           padding="0px 0px 0px 0px"
           {...getOverrideProps(overrides, "Frame 2841171941")}
         >
-          <MyIcon
+          <View
             width="24px"
             height="24px"
-            display="block"
-            gap="unset"
-            alignItems="unset"
-            justifyContent="unset"
-            overflow="hidden"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            type="instagram"
             {...getOverrideProps(overrides, "MyIcon41171942")}
-          ></MyIcon>
+          ></View>
           <Text
             fontFamily="Inter"
             fontSize="14px"
@@ -169,20 +159,11 @@ export default function ContactUs(props) {
           padding="0px 0px 0px 0px"
           {...getOverrideProps(overrides, "Frame 30")}
         >
-          <MyIcon
+          <View
             width="24px"
             height="24px"
-            display="block"
-            gap="unset"
-            alignItems="unset"
-            justifyContent="unset"
-            overflow="hidden"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            type="twitter"
             {...getOverrideProps(overrides, "MyIcon41171945")}
-          ></MyIcon>
+          ></View>
           <Text
             fontFamily="Inter"
             fontSize="14px"

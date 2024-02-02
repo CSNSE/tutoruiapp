@@ -27,9 +27,11 @@ export default function DayUpdateForm(props) {
   const initialValues = {
     Date: "",
     Email: "",
+    Time: "",
   };
   const [Date, setDate] = React.useState(initialValues.Date);
   const [Email, setEmail] = React.useState(initialValues.Email);
+  const [Time, setTime] = React.useState(initialValues.Time);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = dayRecord
@@ -37,6 +39,7 @@ export default function DayUpdateForm(props) {
       : initialValues;
     setDate(cleanValues.Date);
     setEmail(cleanValues.Email);
+    setTime(cleanValues.Time);
     setErrors({});
   };
   const [dayRecord, setDayRecord] = React.useState(dayModelProp);
@@ -58,6 +61,7 @@ export default function DayUpdateForm(props) {
   const validations = {
     Date: [],
     Email: [{ type: "Email" }],
+    Time: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -87,6 +91,7 @@ export default function DayUpdateForm(props) {
         let modelFields = {
           Date: Date ?? null,
           Email: Email ?? null,
+          Time: Time ?? null,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -150,6 +155,7 @@ export default function DayUpdateForm(props) {
             const modelFields = {
               Date: value,
               Email,
+              Time,
             };
             const result = onChange(modelFields);
             value = result?.Date ?? value;
@@ -175,6 +181,7 @@ export default function DayUpdateForm(props) {
             const modelFields = {
               Date,
               Email: value,
+              Time,
             };
             const result = onChange(modelFields);
             value = result?.Email ?? value;
@@ -188,6 +195,32 @@ export default function DayUpdateForm(props) {
         errorMessage={errors.Email?.errorMessage}
         hasError={errors.Email?.hasError}
         {...getOverrideProps(overrides, "Email")}
+      ></TextField>
+      <TextField
+        label="Time"
+        isRequired={false}
+        isReadOnly={false}
+        value={Time}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              Date,
+              Email,
+              Time: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.Time ?? value;
+          }
+          if (errors.Time?.hasError) {
+            runValidationTasks("Time", value);
+          }
+          setTime(value);
+        }}
+        onBlur={() => runValidationTasks("Time", Time)}
+        errorMessage={errors.Time?.errorMessage}
+        hasError={errors.Time?.hasError}
+        {...getOverrideProps(overrides, "Time")}
       ></TextField>
       <Flex
         justifyContent="space-between"

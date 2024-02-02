@@ -10,7 +10,6 @@ import { generateClient } from "aws-amplify/api";
 import { deleteTutoringEvent } from "../graphql/mutations";
 import { getOverrideProps, useNavigateAction } from "./utils";
 import { Flex, Text, View } from "@aws-amplify/ui-react";
-import MyIcon from "./MyIcon";
 const client = generateClient();
 export default function NoteCard(props) {
   const { tutoringEvent, overrides, ...rest } = props;
@@ -154,21 +153,11 @@ export default function NoteCard(props) {
           }}
           {...getOverrideProps(overrides, "Frame 439")}
         >
-          <MyIcon
+          <View
             width="22px"
             height="23px"
-            display="block"
-            gap="unset"
-            alignItems="unset"
-            justifyContent="unset"
-            overflow="hidden"
-            position="absolute"
-            top="0px"
-            left="0px"
-            padding="0px 0px 0px 0px"
-            type="delete"
             {...getOverrideProps(overrides, "MyIcon")}
-          ></MyIcon>
+          ></View>
         </View>
       </Flex>
     </Flex>

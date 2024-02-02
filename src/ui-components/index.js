@@ -4,8 +4,6 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-export { default as Ampligram } from "./Ampligram";
-export { default as AssignDay } from "./AssignDay";
 export { default as CTASection } from "./CTASection";
 export { default as CheckoutPayment } from "./CheckoutPayment";
 export { default as CommentCard } from "./CommentCard";
@@ -13,8 +11,6 @@ export { default as ContactUs } from "./ContactUs";
 export { default as CreateEvent } from "./CreateEvent";
 export { default as CreateTutoringEvent } from "./CreateTutoringEvent";
 export { default as DataRow } from "./DataRow";
-export { default as DayCreateForm } from "./DayCreateForm";
-export { default as DayUpdateForm } from "./DayUpdateForm";
 export { default as DispTutorEvent } from "./DispTutorEvent";
 export { default as DispTutorEventCollection } from "./DispTutorEventCollection";
 export { default as DisplayTutoringEvent } from "./DisplayTutoringEvent";
@@ -51,11 +47,10 @@ export { default as SocialPost } from "./SocialPost";
 export { default as StandardCard } from "./StandardCard";
 export { default as Stat } from "./Stat";
 export { default as TallCard } from "./TallCard";
-export { default as TutorCreateForm } from "./TutorCreateForm";
-export { default as TutorUpdateForm } from "./TutorUpdateForm";
 export { default as TutoringEventCreateForm } from "./TutoringEventCreateForm";
 export { default as TutoringEventUpdateForm } from "./TutoringEventUpdateForm";
 export { default as UIEditNote } from "./UIEditNote";
 export { default as UINewNote } from "./UINewNote";
 export { default as UINoteCard } from "./UINoteCard";
+export { default as Upcoming } from "./Upcoming";
 export { default as studioTheme } from "./studioTheme";

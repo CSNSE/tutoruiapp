@@ -24,16 +24,19 @@ export declare type ValidationFunction<T> = (value: T, validationResponse: Valid
 export declare type DayCreateFormInputValues = {
     Date?: string;
     Email?: string;
+    Time?: string;
 };
 export declare type DayCreateFormValidationValues = {
     Date?: ValidationFunction<string>;
     Email?: ValidationFunction<string>;
+    Time?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type DayCreateFormOverridesProps = {
     DayCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
     Date?: PrimitiveOverrideProps<TextFieldProps>;
     Email?: PrimitiveOverrideProps<TextFieldProps>;
+    Time?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type DayCreateFormProps = React.PropsWithChildren<{
     overrides?: DayCreateFormOverridesProps | undefined | null;

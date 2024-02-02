@@ -7,8 +7,7 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps, useAuth } from "./utils";
-import { Flex, Text } from "@aws-amplify/ui-react";
-import MyIcon from "./MyIcon";
+import { Flex, Text, View } from "@aws-amplify/ui-react";
 export default function NoteNavbar(props) {
   const { overrides, ...rest } = props;
   const authAttributes = useAuth().user?.attributes ?? {};
@@ -84,20 +83,11 @@ export default function NoteNavbar(props) {
           {...getOverrideProps(overrides, "Total Tutoring Hours Logged:")}
         ></Text>
       </Flex>
-      <MyIcon
+      <View
         width="24px"
         height="24px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        overflow="hidden"
-        shrink="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        type="checkmark"
         {...getOverrideProps(overrides, "MyIcon")}
-      ></MyIcon>
+      ></View>
     </Flex>
   );
 }

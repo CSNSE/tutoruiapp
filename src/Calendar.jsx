@@ -7,7 +7,6 @@ import { createTutoringEvent, deleteTutoringEvent } from './graphql/mutations';
 import EditCalendar from './calEdit';
 const client = generateClient();
 
-
 function Calendar() {
   const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(null);
@@ -17,18 +16,17 @@ function Calendar() {
     // Set the selected date when the component mounts
     const today = new Date();
     setSelectedDate(today);
-  }, []); // Empty dependency array ensures the effect runs only once on mount
+  }, []);
 
   const handleDayClick = async (date) => {
     try {
-
+      // If the clicked date is the same as the selected date, unselect it
       if (selectedDate && date.getTime() === selectedDate.getTime()) {
-        // If yes, unselect the date
         setSelectedDate(null);
         return;
       }
 
-      // Check if there is an existing temporary event, delete it before creating a new one
+      // Delete existing temporary event before creating a new one
       if (tempEventId) {
         await deleteTemporaryEvent();
       }
@@ -44,20 +42,19 @@ function Calendar() {
             studentName: 'Student Name',
             date: formattedDate,
             conceptsCovered: 'Concepts Covered',
-            image: '',
+            image: 'Image',
           },
         },
       });
 
       // Extract the ID of the created event
       const eventId = newTutoringEvent.data.createTutoringEvent.id;
-      console.log(formattedDate)
-      console.log(eventId);
+
       // Set the temporary event ID and selected date
       setTempEventId(eventId);
       setSelectedDate(date);
     } catch (error) {
-      console.error('Error creating temporary tutoring event:', error);
+      console.error('Error handling day click:', error);
     }
   };
 
@@ -70,17 +67,6 @@ function Calendar() {
     // Clear the temporary event ID and selected date
     setTempEventId(null);
     setSelectedDate(null);
-  };
-
-  const handleCreateEvent = async (fields) => {
-    // Handle creating the actual tutoring event here (similar to your existing logic)
-    // ...
-
-    // After creating the actual event, clear the temporary event
-    await deleteTemporaryEvent();
-
-    // Use navigate to go to a different page (replace '/target-page' with your desired path)
-    navigate('/');
   };
 
   const deleteTemporaryEvent = async () => {
@@ -104,25 +90,25 @@ function Calendar() {
     navigate('/'); // Replace '/' with the path to DispTutorEvent
   };
 
-return (
-  <div>
-    <h1>Calendar</h1>
-    <DayPicker selected={selectedDate} onDayClick={handleDayClick} />
-    <button onClick={navigateBack}>Back</button>
-    {selectedDate && (
-      <div>
-        {tempEventId ? (
-          // Display the EditEvent form with the ID of the new event
-          <EditCalendar cid={tempEventId} onCancel={handleCancel} />
+  return (
+    <div>
+      <h1>Calendar</h1>
+      <DayPicker selected={selectedDate} onDayClick={handleDayClick} />
+      <button onClick={navigateBack}>Back</button>
+      {selectedDate && (
+        <div>
+          {tempEventId ? (
+            // Display the EventEdit form with the ID of the new event
+            < EditCalendar cid={tempEventId} onCancel={handleCancel} />
           ) : (
-          <>
-         
-          </>
-        )}
-      </div>
-    )}
-  </div>
-);
+            <>
+              {/* Additional content to display when no temporary event is selected */}
+            </>
+          )}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default Calendar;

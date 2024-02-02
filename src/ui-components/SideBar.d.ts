@@ -5,8 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { MyIconProps } from "./MyIcon";
-import { FlexProps, TextProps } from "@aws-amplify/ui-react";
+import { FlexProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -25,35 +24,35 @@ export declare type SideBarOverridesProps = {
     "Frame 414"?: PrimitiveOverrideProps<FlexProps>;
     "Frame 322"?: PrimitiveOverrideProps<FlexProps>;
     icon41172168?: PrimitiveOverrideProps<FlexProps>;
-    MyIcon41172169?: MyIconProps;
+    MyIcon41172169?: PrimitiveOverrideProps<ViewProps>;
     label41172170?: PrimitiveOverrideProps<TextProps>;
     Section41172171?: PrimitiveOverrideProps<FlexProps>;
     label41172172?: PrimitiveOverrideProps<TextProps>;
     link41172173?: PrimitiveOverrideProps<FlexProps>;
     icon41172174?: PrimitiveOverrideProps<FlexProps>;
-    MyIcon41172175?: MyIconProps;
+    MyIcon41172175?: PrimitiveOverrideProps<ViewProps>;
     label41172176?: PrimitiveOverrideProps<TextProps>;
     link41172177?: PrimitiveOverrideProps<FlexProps>;
     icon41172178?: PrimitiveOverrideProps<FlexProps>;
-    MyIcon41172179?: MyIconProps;
+    MyIcon41172179?: PrimitiveOverrideProps<ViewProps>;
     label41172180?: PrimitiveOverrideProps<TextProps>;
     link41172181?: PrimitiveOverrideProps<FlexProps>;
     icon41172182?: PrimitiveOverrideProps<FlexProps>;
-    MyIcon41172183?: MyIconProps;
+    MyIcon41172183?: PrimitiveOverrideProps<ViewProps>;
     label41172184?: PrimitiveOverrideProps<TextProps>;
     Section41172185?: PrimitiveOverrideProps<FlexProps>;
     label41172186?: PrimitiveOverrideProps<TextProps>;
     link41172187?: PrimitiveOverrideProps<FlexProps>;
     icon41172188?: PrimitiveOverrideProps<FlexProps>;
-    MyIcon41172189?: MyIconProps;
+    MyIcon41172189?: PrimitiveOverrideProps<ViewProps>;
     label41172190?: PrimitiveOverrideProps<TextProps>;
     link41172191?: PrimitiveOverrideProps<FlexProps>;
     icon41172192?: PrimitiveOverrideProps<FlexProps>;
-    MyIcon41172193?: MyIconProps;
+    MyIcon41172193?: PrimitiveOverrideProps<ViewProps>;
     label41172194?: PrimitiveOverrideProps<TextProps>;
     link41172195?: PrimitiveOverrideProps<FlexProps>;
     icon41172196?: PrimitiveOverrideProps<FlexProps>;
-    MyIcon41172197?: MyIconProps;
+    MyIcon41172197?: PrimitiveOverrideProps<ViewProps>;
     label41172198?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
 export declare type SideBarProps = React.PropsWithChildren<Partial<FlexProps> & {

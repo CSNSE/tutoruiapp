@@ -6,12 +6,18 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
+import {
+  Button,
+  Flex,
+  Grid,
+  SelectField,
+  TextField,
+} from "@aws-amplify/ui-react";
 import { fetchByPath, getOverrideProps, validateField } from "./utils";
 import { generateClient } from "aws-amplify/api";
 import { createDay } from "../graphql/mutations";
 const client = generateClient();
-export default function DayCreateForm(props) {
+export default function DayMake(props) {
   const {
     clearOnSuccess = true,
     onSuccess,
@@ -24,23 +30,23 @@ export default function DayCreateForm(props) {
   } = props;
   const initialValues = {
     Date: "",
-    Email: "",
     Time: "",
+    Email: "",
   };
   const [Date, setDate] = React.useState(initialValues.Date);
-  const [Email, setEmail] = React.useState(initialValues.Email);
   const [Time, setTime] = React.useState(initialValues.Time);
+  const [Email, setEmail] = React.useState(initialValues.Email);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setDate(initialValues.Date);
-    setEmail(initialValues.Email);
     setTime(initialValues.Time);
+    setEmail(initialValues.Email);
     setErrors({});
   };
   const validations = {
     Date: [],
-    Email: [{ type: "Email" }],
     Time: [],
+    Email: [{ type: "Email" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -69,8 +75,8 @@ export default function DayCreateForm(props) {
         event.preventDefault();
         let modelFields = {
           Date,
-          Email,
           Time,
+          Email,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -121,7 +127,7 @@ export default function DayCreateForm(props) {
           }
         }
       }}
-      {...getOverrideProps(overrides, "DayCreateForm")}
+      {...getOverrideProps(overrides, "DayMake")}
       {...rest}
     >
       <TextField
@@ -135,8 +141,8 @@ export default function DayCreateForm(props) {
           if (onChange) {
             const modelFields = {
               Date: value,
-              Email,
               Time,
+              Email,
             };
             const result = onChange(modelFields);
             value = result?.Date ?? value;
@@ -151,44 +157,18 @@ export default function DayCreateForm(props) {
         hasError={errors.Date?.hasError}
         {...getOverrideProps(overrides, "Date")}
       ></TextField>
-      <TextField
-        label="Email"
-        isRequired={false}
-        isReadOnly={false}
-        value={Email}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              Date,
-              Email: value,
-              Time,
-            };
-            const result = onChange(modelFields);
-            value = result?.Email ?? value;
-          }
-          if (errors.Email?.hasError) {
-            runValidationTasks("Email", value);
-          }
-          setEmail(value);
-        }}
-        onBlur={() => runValidationTasks("Email", Email)}
-        errorMessage={errors.Email?.errorMessage}
-        hasError={errors.Email?.hasError}
-        {...getOverrideProps(overrides, "Email")}
-      ></TextField>
-      <TextField
+      <SelectField
         label="Time"
-        isRequired={false}
-        isReadOnly={false}
+        placeholder="Please select an option"
+        isDisabled={false}
         value={Time}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
               Date,
-              Email,
               Time: value,
+              Email,
             };
             const result = onChange(modelFields);
             value = result?.Time ?? value;
@@ -202,6 +182,53 @@ export default function DayCreateForm(props) {
         errorMessage={errors.Time?.errorMessage}
         hasError={errors.Time?.hasError}
         {...getOverrideProps(overrides, "Time")}
+      >
+        <option
+          children="Flex"
+          value="Flex"
+          {...getOverrideProps(overrides, "Timeoption0")}
+        ></option>
+        <option
+          children="After school"
+          value="After school"
+          {...getOverrideProps(overrides, "Timeoption1")}
+        ></option>
+        <option
+          children="Before School"
+          value="Before School"
+          {...getOverrideProps(overrides, "Timeoption2")}
+        ></option>
+        <option
+          children="Break"
+          value="Break"
+          {...getOverrideProps(overrides, "Timeoption3")}
+        ></option>
+      </SelectField>
+      <TextField
+        label="Email"
+        isRequired={false}
+        isReadOnly={false}
+        value={Email}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              Date,
+              Time,
+              Email: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.Email ?? value;
+          }
+          if (errors.Email?.hasError) {
+            runValidationTasks("Email", value);
+          }
+          setEmail(value);
+        }}
+        onBlur={() => runValidationTasks("Email", Email)}
+        errorMessage={errors.Email?.errorMessage}
+        hasError={errors.Email?.hasError}
+        {...getOverrideProps(overrides, "Email")}
       ></TextField>
       <Flex
         justifyContent="space-between"
