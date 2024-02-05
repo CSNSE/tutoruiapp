@@ -5,7 +5,8 @@
  **************************************************************************/
 
 import * as React from "react";
-import { ButtonProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { NewDispEventProps } from "./NewDispEvent";
+import { CollectionProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -17,18 +18,17 @@ export declare type Variant = {
     overrides: EscapeHatchProps;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type NavBarOverridesProps = {
-    NavBar?: PrimitiveOverrideProps<ViewProps>;
-    name?: PrimitiveOverrideProps<TextProps>;
-    "#"?: PrimitiveOverrideProps<TextProps>;
-    "Tutoring Hours Logged:"?: PrimitiveOverrideProps<TextProps>;
-    Create?: PrimitiveOverrideProps<ButtonProps>;
-    Button?: PrimitiveOverrideProps<ButtonProps>;
-    "CS Honors Society Tutoring Log"?: PrimitiveOverrideProps<TextProps>;
+export declare type NewDispEventCollectionOverridesProps = {
+    NewDispEventCollection?: PrimitiveOverrideProps<CollectionProps>;
+    NewDispEvent?: NewDispEventProps;
 } & EscapeHatchProps;
-export declare type NavBarProps = React.PropsWithChildren<Partial<ViewProps> & {
-    tutoringEvent?: any;
+export declare type NewDispEventCollectionProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
+    items?: any[];
+    overrideItems?: (collectionItem: {
+        item: any;
+        index: number;
+    }) => NewDispEventProps;
 } & {
-    overrides?: NavBarOverridesProps | undefined | null;
+    overrides?: NewDispEventCollectionOverridesProps | undefined | null;
 }>;
-export default function NavBar(props: NavBarProps): React.ReactElement;
+export default function NewDispEventCollection(props: NewDispEventCollectionProps): React.ReactElement;

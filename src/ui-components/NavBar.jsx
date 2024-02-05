@@ -20,8 +20,8 @@ export default function NavBar(props) {
   const buttonOnClick = useAuthSignOutAction({ global: false });
   return (
     <View
-      width="725px"
-      height="76px"
+      width="3121px"
+      height="289px"
       display="block"
       gap="unset"
       alignItems="unset"
@@ -35,21 +35,21 @@ export default function NavBar(props) {
     >
       <Text
         fontFamily="Inter"
-        fontSize="16px"
+        fontSize="40px"
         fontWeight="700"
         color="rgba(0,0,0,1)"
-        lineHeight="24px"
+        lineHeight="60px"
         textAlign="center"
         display="block"
         direction="column"
         justifyContent="unset"
-        width="85px"
-        height="23px"
+        width="111px"
+        height="35px"
         gap="unset"
         alignItems="unset"
         position="absolute"
-        top="24px"
-        left="185px"
+        top="121px"
+        left="327px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children={authAttributes["email"]}
@@ -57,10 +57,10 @@ export default function NavBar(props) {
       ></Text>
       <Text
         fontFamily="Inter"
-        fontSize="16px"
+        fontSize="40px"
         fontWeight="700"
         color="rgba(0,0,0,1)"
-        lineHeight="24px"
+        lineHeight="60px"
         textAlign="center"
         display="block"
         direction="column"
@@ -70,8 +70,8 @@ export default function NavBar(props) {
         gap="unset"
         alignItems="unset"
         position="absolute"
-        top="24px"
-        left="555px"
+        top="121px"
+        left="2435px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="#"
@@ -79,32 +79,32 @@ export default function NavBar(props) {
       ></Text>
       <Text
         fontFamily="Inter"
-        fontSize="16px"
+        fontSize="30px"
         fontWeight="700"
         color="rgba(0,0,0,1)"
-        lineHeight="24px"
+        lineHeight="45px"
         textAlign="center"
         display="block"
         direction="column"
         justifyContent="unset"
-        width="187px"
+        width="409px"
         height="23px"
         gap="unset"
         alignItems="unset"
         position="absolute"
-        top="24px"
-        left="391px"
+        top="133px"
+        left="2005px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Tutoring Hours Logged:&#xA;"
         {...getOverrideProps(overrides, "Tutoring Hours Logged:")}
       ></Text>
       <Button
-        width="31px"
-        height="32px"
+        width="126px"
+        height="128px"
         position="absolute"
-        top="19px"
-        left="680px"
+        top="80px"
+        left="2861px"
         size="default"
         isDisabled={false}
         variation="primary"
@@ -115,11 +115,11 @@ export default function NavBar(props) {
         {...getOverrideProps(overrides, "Create")}
       ></Button>
       <Button
-        width="unset"
-        height="unset"
+        width="186px"
+        height="92px"
         position="absolute"
-        top="23px"
-        left="18px"
+        top="98px"
+        left="42px"
         size="default"
         isDisabled={false}
         variation="primary"
@@ -129,6 +129,28 @@ export default function NavBar(props) {
         }}
         {...getOverrideProps(overrides, "Button")}
       ></Button>
+      <Text
+        fontFamily="Inter"
+        fontSize="50px"
+        fontWeight="700"
+        color="rgba(0,0,0,1)"
+        lineHeight="75px"
+        textAlign="center"
+        display="block"
+        direction="column"
+        justifyContent="unset"
+        width="855px"
+        height="105px"
+        gap="unset"
+        alignItems="unset"
+        position="absolute"
+        top="115px"
+        left="764px"
+        padding="0px 0px 0px 0px"
+        whiteSpace="pre-wrap"
+        children="CS Honors Society Tutoring Log"
+        {...getOverrideProps(overrides, "CS Honors Society Tutoring Log")}
+      ></Text>
     </View>
   );
 }

@@ -34,6 +34,8 @@ export { default as NavBar } from "./NavBar";
 export { default as NavBarHeader } from "./NavBarHeader";
 export { default as NavBarHeader2 } from "./NavBarHeader2";
 export { default as NavBarSide } from "./NavBarSide";
+export { default as NewDispEvent } from "./NewDispEvent";
+export { default as NewDispEventCollection } from "./NewDispEventCollection";
 export { default as NoteCard } from "./NoteCard";
 export { default as NoteCardCollection } from "./NoteCardCollection";
 export { default as NoteNavbar } from "./NoteNavbar";

@@ -14,7 +14,7 @@ import { updateTutoringEvent } from "../graphql/mutations";
 const client = generateClient();
 export default function TutoringEventUpdateForm(props) {
   const {
-    idProp,
+    id: idProp,
     tutoringEvent: tutoringEventModelProp,
     onSuccess,
     onError,
