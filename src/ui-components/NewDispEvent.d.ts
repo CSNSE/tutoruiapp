@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { DividerProps, IconProps, ImageProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { DividerProps, FlexProps, IconProps, ImageProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -18,7 +18,7 @@ export declare type Variant = {
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type NewDispEventOverridesProps = {
-    NewDispEvent?: PrimitiveOverrideProps<ViewProps>;
+    NewDispEvent?: PrimitiveOverrideProps<FlexProps>;
     "Frame 443"?: PrimitiveOverrideProps<ViewProps>;
     "Ellipse 2"?: PrimitiveOverrideProps<IconProps>;
     "Ellipse 3"?: PrimitiveOverrideProps<IconProps>;
@@ -37,7 +37,7 @@ export declare type NewDispEventOverridesProps = {
     Divider44701299?: PrimitiveOverrideProps<DividerProps>;
     "Line 1"?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;
-export declare type NewDispEventProps = React.PropsWithChildren<Partial<ViewProps> & {
+export declare type NewDispEventProps = React.PropsWithChildren<Partial<FlexProps> & {
     tutoringEvent?: any;
 } & {
     overrides?: NewDispEventOverridesProps | undefined | null;

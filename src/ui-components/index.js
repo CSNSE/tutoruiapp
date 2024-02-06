@@ -45,6 +45,8 @@ export { default as ProductDetail } from "./ProductDetail";
 export { default as ProfileCard } from "./ProfileCard";
 export { default as ReviewCard } from "./ReviewCard";
 export { default as SideBar } from "./SideBar";
+export { default as SizedDispEvent } from "./SizedDispEvent";
+export { default as SizedDispEventCollection } from "./SizedDispEventCollection";
 export { default as SocialPost } from "./SocialPost";
 export { default as StandardCard } from "./StandardCard";
 export { default as Stat } from "./Stat";

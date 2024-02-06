@@ -7,18 +7,18 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps, useAuth } from "./utils";
-import { Divider, Icon, Image, Text, View } from "@aws-amplify/ui-react";
+import { Divider, Flex, Icon, Image, Text, View } from "@aws-amplify/ui-react";
 export default function NewDispEvent(props) {
   const { tutoringEvent, overrides, ...rest } = props;
   const authAttributes = useAuth().user?.attributes ?? {};
   return (
-    <View
-      width="2014px"
-      height="777px"
-      display="block"
-      gap="unset"
-      alignItems="unset"
-      justifyContent="unset"
+    <Flex
+      gap="10px"
+      direction="column"
+      width="unset"
+      height="unset"
+      justifyContent="flex-start"
+      alignItems="flex-start"
       position="relative"
       padding="0px 0px 0px 0px"
       {...getOverrideProps(overrides, "NewDispEvent")}
@@ -32,11 +32,8 @@ export default function NewDispEvent(props) {
         alignItems="unset"
         justifyContent="unset"
         overflow="hidden"
-        position="absolute"
-        top="0%"
-        bottom="0%"
-        left="0%"
-        right="0%"
+        shrink="0"
+        position="relative"
         padding="0px 0px 0px 0px"
         backgroundColor="rgba(255,255,255,1)"
         {...getOverrideProps(overrides, "Frame 443")}
@@ -341,6 +338,6 @@ export default function NewDispEvent(props) {
           {...getOverrideProps(overrides, "Line 1")}
         ></Icon>
       </View>
-    </View>
+    </Flex>
   );
 }
