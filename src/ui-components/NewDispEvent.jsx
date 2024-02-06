@@ -13,7 +13,7 @@ export default function NewDispEvent(props) {
   const authAttributes = useAuth().user?.attributes ?? {};
   return (
     <View
-      width="3121px"
+      width="2014px"
       height="777px"
       display="block"
       gap="unset"
@@ -25,7 +25,7 @@ export default function NewDispEvent(props) {
       {...rest}
     >
       <View
-        width="3121px"
+        width="2014px"
         height="777px"
         display="block"
         gap="unset"
@@ -278,55 +278,68 @@ export default function NewDispEvent(props) {
           {...getOverrideProps(overrides, "Date")}
         ></Text>
         <Image
-          width="856px"
-          height="587px"
+          width="587px"
+          height="588px"
           display="block"
           gap="unset"
           alignItems="unset"
           justifyContent="unset"
           position="absolute"
-          top="95px"
-          left="2224px"
+          top="94px"
+          left="1336px"
           padding="0px 0px 0px 0px"
           objectFit="cover"
           {...getOverrideProps(overrides, "image")}
         ></Image>
         <Divider
-          width="1885px"
+          width="964px"
           position="absolute"
           top="163px"
-          left="234px"
+          left="249px"
           size="large"
           orientation="horizontal"
           {...getOverrideProps(overrides, "Divider44651273")}
         ></Divider>
         <Divider
-          width="1885px"
+          width="964px"
           position="absolute"
-          top="310px"
-          left="234px"
+          top="316px"
+          left="241px"
           size="large"
           orientation="horizontal"
-          {...getOverrideProps(overrides, "Divider44651278")}
+          {...getOverrideProps(overrides, "Divider44701297")}
         ></Divider>
         <Divider
-          width="1885px"
+          width="964px"
           position="absolute"
-          top="473px"
-          left="234px"
+          top="471px"
+          left="241px"
           size="large"
           orientation="horizontal"
-          {...getOverrideProps(overrides, "Divider44651280")}
+          {...getOverrideProps(overrides, "Divider44701299")}
         ></Divider>
-        <Divider
-          width="1885px"
+        <Icon
+          width="622.07px"
+          height="0px"
+          viewBox={{ minX: 0, minY: 0, width: 622.074951171875, height: 1 }}
+          paths={[
+            {
+              d: "M0 0L622.075 0L622.075 -3L0 -3L0 0Z",
+              stroke: "rgba(174,179,183,1)",
+              fillRule: "nonzero",
+              strokeWidth: 3,
+            },
+          ]}
+          display="block"
+          gap="unset"
+          alignItems="unset"
+          justifyContent="unset"
           position="absolute"
-          top="636px"
-          left="249px"
-          size="large"
-          orientation="horizontal"
-          {...getOverrideProps(overrides, "Divider44651282")}
-        ></Divider>
+          top="calc(50% - 0px - -251.5px)"
+          left="7.72%"
+          right="61.39%"
+          {...getOverrideProps(overrides, "Line 1")}
+        ></Icon>
       </View>
     </View>
   );

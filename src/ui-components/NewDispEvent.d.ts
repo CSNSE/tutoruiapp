@@ -33,9 +33,9 @@ export declare type NewDispEventOverridesProps = {
     Date?: PrimitiveOverrideProps<TextProps>;
     image?: PrimitiveOverrideProps<ImageProps>;
     Divider44651273?: PrimitiveOverrideProps<DividerProps>;
-    Divider44651278?: PrimitiveOverrideProps<DividerProps>;
-    Divider44651280?: PrimitiveOverrideProps<DividerProps>;
-    Divider44651282?: PrimitiveOverrideProps<DividerProps>;
+    Divider44701297?: PrimitiveOverrideProps<DividerProps>;
+    Divider44701299?: PrimitiveOverrideProps<DividerProps>;
+    "Line 1"?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;
 export declare type NewDispEventProps = React.PropsWithChildren<Partial<ViewProps> & {
     tutoringEvent?: any;

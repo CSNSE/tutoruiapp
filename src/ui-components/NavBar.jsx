@@ -20,7 +20,7 @@ export default function NavBar(props) {
   const buttonOnClick = useAuthSignOutAction({ global: false });
   return (
     <View
-      width="3121px"
+      width="2014px"
       height="289px"
       display="block"
       gap="unset"
@@ -52,7 +52,7 @@ export default function NavBar(props) {
         left="327px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children={authAttributes["email"]}
+        children={authAttributes["name"]}
         {...getOverrideProps(overrides, "name")}
       ></Text>
       <Text
@@ -70,8 +70,8 @@ export default function NavBar(props) {
         gap="unset"
         alignItems="unset"
         position="absolute"
-        top="121px"
-        left="2435px"
+        top="134px"
+        left="1635px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="#"
@@ -92,8 +92,8 @@ export default function NavBar(props) {
         gap="unset"
         alignItems="unset"
         position="absolute"
-        top="133px"
-        left="2005px"
+        top="134px"
+        left="1212px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Tutoring Hours Logged:&#xA;"
@@ -103,8 +103,8 @@ export default function NavBar(props) {
         width="126px"
         height="128px"
         position="absolute"
-        top="80px"
-        left="2861px"
+        top="81px"
+        left="1806px"
         size="default"
         isDisabled={false}
         variation="primary"
@@ -139,13 +139,13 @@ export default function NavBar(props) {
         display="block"
         direction="column"
         justifyContent="unset"
-        width="855px"
+        width="513px"
         height="105px"
         gap="unset"
         alignItems="unset"
         position="absolute"
-        top="115px"
-        left="764px"
+        top="76px"
+        left="581px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="CS Honors Society Tutoring Log"
