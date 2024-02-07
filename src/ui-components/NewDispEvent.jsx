@@ -333,8 +333,8 @@ export default function NewDispEvent(props) {
           justifyContent="unset"
           position="absolute"
           top="calc(50% - 0px - -251.5px)"
-          left="7.72%"
-          right="61.39%"
+          left="12.36%"
+          right="56.75%"
           {...getOverrideProps(overrides, "Line 1")}
         ></Icon>
       </View>

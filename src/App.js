@@ -4,14 +4,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Button, ThemeProvider, withAuthenticator } from '@aws-amplify/ui-react';
-import { NavBar, TutoringEventCreateForm, TutoringEventUpdateForm, DispTutorEventCollection,NewDispEventCollection, SizedDispEventCollection} from "./ui-components";
+import { NavBar, TutoringEventCreateForm, DispTutorEventCollection, CRUDDisplayCollection, CRUDDisplayCollectionfour} from "./ui-components";
 import { createTutoringEvent, deleteTutoringEvent, createDay, deleteDay } from './graphql/mutations';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { generateClient } from "aws-amplify/api";
 import { useNavigate } from 'react-router-dom';
 import Diary from './diary';
 import { useParams } from 'react-router-dom';
-import EventEdit from './EventEdit';
+import EditEvent from './EventEdit';
 import { getTutoringEvent } from './graphql/queries';
 import Calendar from './Calendar';
 import './Calendar.css'
@@ -28,11 +28,11 @@ class App extends Component {
             <Route exact path='/' element={
               <div>
                 <NavBar/>
-                <SizedDispEventCollection/>
+                <CRUDDisplayCollectionfour/>
               </div>
             }/> 
               <Route exact path='/new' element={<div><NavBar /><MyFormComponent    /></div>} />
-              <Route exact path="/update/:cid" element={<EventEdit />} />
+              <Route exact path="/update/:cid" element={<EditEvent />} />
             </Routes>
           </Router>
         </header>
@@ -42,6 +42,9 @@ class App extends Component {
 }
 
 export default withAuthenticator(App);
+
+
+
 
 function MyFormComponent() {
   const navigate = useNavigate();

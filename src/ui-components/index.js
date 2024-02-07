@@ -4,6 +4,11 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
+export { default as CRUDDisplay } from "./CRUDDisplay";
+export { default as CRUDDisplayCollection } from "./CRUDDisplayCollection";
+export { default as CRUDDisplayCollectionThree } from "./CRUDDisplayCollectionThree";
+export { default as CRUDDisplayCollectionTwo } from "./CRUDDisplayCollectionTwo";
+export { default as CRUDDisplayCollectionfour } from "./CRUDDisplayCollectionfour";
 export { default as CTASection } from "./CTASection";
 export { default as CheckoutPayment } from "./CheckoutPayment";
 export { default as CommentCard } from "./CommentCard";
@@ -11,8 +16,11 @@ export { default as ContactUs } from "./ContactUs";
 export { default as CreateEvent } from "./CreateEvent";
 export { default as CreateTutoringEvent } from "./CreateTutoringEvent";
 export { default as DataRow } from "./DataRow";
+export { default as Delete } from "./Delete";
 export { default as DispTutorEvent } from "./DispTutorEvent";
 export { default as DispTutorEventCollection } from "./DispTutorEventCollection";
+export { default as DisplayBookEvent } from "./DisplayBookEvent";
+export { default as DisplayBookEventNew } from "./DisplayBookEventNew";
 export { default as DisplayTutoringEvent } from "./DisplayTutoringEvent";
 export { default as DisplayTutoringEventCollection } from "./DisplayTutoringEventCollection";
 export { default as EditTutoringEvent } from "./EditTutoringEvent";
@@ -21,6 +29,7 @@ export { default as Filters } from "./Filters";
 export { default as FormCheckout } from "./FormCheckout";
 export { default as HeroLayout1 } from "./HeroLayout1";
 export { default as HeroLayout2 } from "./HeroLayout2";
+export { default as Iconedit } from "./Iconedit";
 export { default as ItemCard } from "./ItemCard";
 export { default as Logo } from "./Logo";
 export { default as LogoWithText } from "./LogoWithText";

@@ -7,14 +7,14 @@
 /* eslint-disable */
 import * as React from "react";
 import { listTutoringEvents } from "../graphql/queries";
-import SizedDispEvent from "./SizedDispEvent";
+import CRUDDisplay from "./CRUDDisplay";
 import { getOverrideProps } from "./utils";
 import { Collection, Pagination, Placeholder } from "@aws-amplify/ui-react";
 import { generateClient } from "aws-amplify/api";
 const nextToken = {};
 const apiCache = {};
 const client = generateClient();
-export default function SizedDispEventCollection(props) {
+export default function CRUDDisplayCollectionthree(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
   const [pageIndex, setPageIndex] = React.useState(1);
   const [hasMorePages, setHasMorePages] = React.useState(true);
@@ -23,7 +23,7 @@ export default function SizedDispEventCollection(props) {
   const [instanceKey, setInstanceKey] = React.useState("newGuid");
   const [loading, setLoading] = React.useState(true);
   const [maxViewed, setMaxViewed] = React.useState(1);
-  const pageSize = 4;
+  const pageSize = 6;
   const isPaginated = false;
   React.useEffect(() => {
     nextToken[instanceKey] = "";
@@ -80,16 +80,13 @@ export default function SizedDispEventCollection(props) {
   return (
     <div>
       <Collection
-        type="grid"
-        searchPlaceholder="Search..."
-        templateColumns="1fr 1fr"
-        autoFlow="row"
-        alignItems="stretch"
-        justifyContent="stretch"
+        type="list"
+        direction="column"
+        justifyContent="left"
         itemsPerPage={pageSize}
         isPaginated={!isApiPagination && isPaginated}
         items={itemsProp || (loading ? new Array(pageSize).fill({}) : items)}
-        {...getOverrideProps(overrides, "SizedDispEventCollection")}
+        {...getOverrideProps(overrides, "CRUDDisplayCollectionthree")}
         {...rest}
       >
         {(item, index) => {
@@ -97,11 +94,11 @@ export default function SizedDispEventCollection(props) {
             return <Placeholder key={index} size="large" />;
           }
           return (
-            <SizedDispEvent
+            <CRUDDisplay
               tutoringEvent={item}
               key={item.id}
               {...(overrideItems && overrideItems({ item, index }))}
-            ></SizedDispEvent>
+            ></CRUDDisplay>
           );
         }}
       </Collection>
