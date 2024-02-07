@@ -20,7 +20,7 @@ export default function CRUDDisplay(props) {
     type: "url",
     url: `${"/update/"}${tutoringEvent?.id}`,
   });
-  const buttonFourFourEightSixEightFourFourSevenOnClick = async () => {
+  const buttonFourFourEightSixEightFourFourSevenOnMouseDown = async () => {
     await client.graphql({
       query: deleteTutoringEvent.replaceAll("__typename", ""),
       variables: {
@@ -30,6 +30,10 @@ export default function CRUDDisplay(props) {
       },
     });
   };
+  const buttonFourFourEightSixEightFourFourSevenOnMouseUp = useNavigateAction({
+    type: "url",
+    url: "/",
+  });
   return (
     <View
       width="756px"
@@ -539,8 +543,11 @@ export default function CRUDDisplay(props) {
           size="default"
           isDisabled={false}
           variation="default"
-          onClick={() => {
-            buttonFourFourEightSixEightFourFourSevenOnClick();
+          onMouseDown={() => {
+            buttonFourFourEightSixEightFourFourSevenOnMouseDown();
+          }}
+          onMouseUp={() => {
+            buttonFourFourEightSixEightFourFourSevenOnMouseUp();
           }}
           {...getOverrideProps(overrides, "Button44868447")}
         ></Button>

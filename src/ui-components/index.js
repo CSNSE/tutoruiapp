@@ -5,9 +5,7 @@
  **************************************************************************/
 
 export { default as CRUDDisplay } from "./CRUDDisplay";
-export { default as CRUDDisplayCollection } from "./CRUDDisplayCollection";
-export { default as CRUDDisplayCollectionThree } from "./CRUDDisplayCollectionThree";
-export { default as CRUDDisplayCollectionTwo } from "./CRUDDisplayCollectionTwo";
+export { default as CRUDDisplayCollectionFive } from "./CRUDDisplayCollectionFive";
 export { default as CRUDDisplayCollectionfour } from "./CRUDDisplayCollectionfour";
 export { default as CTASection } from "./CTASection";
 export { default as CheckoutPayment } from "./CheckoutPayment";
