@@ -24,7 +24,7 @@ export default function CRUDDisplayCollectionfour(props) {
   const [loading, setLoading] = React.useState(true);
   const [maxViewed, setMaxViewed] = React.useState(1);
   const pageSize = 6;
-  const isPaginated = false;
+  const isPaginated = true;
   React.useEffect(() => {
     nextToken[instanceKey] = "";
     apiCache[instanceKey] = [];
@@ -80,9 +80,13 @@ export default function CRUDDisplayCollectionfour(props) {
   return (
     <div>
       <Collection
-        type="list"
-        direction="column"
-        justifyContent="left"
+        type="grid"
+        isSearchable={true}
+        searchPlaceholder="Search..."
+        templateColumns="1fr 1fr"
+        autoFlow="row"
+        alignItems="stretch"
+        justifyContent="stretch"
         itemsPerPage={pageSize}
         isPaginated={!isApiPagination && isPaginated}
         items={itemsProp || (loading ? new Array(pageSize).fill({}) : items)}

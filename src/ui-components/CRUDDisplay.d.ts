@@ -43,12 +43,12 @@ export declare type CRUDDisplayOverridesProps = {
     "Group 8"?: PrimitiveOverrideProps<ViewProps>;
     "Concepts Covered:44868421"?: PrimitiveOverrideProps<TextProps>;
     image?: PrimitiveOverrideProps<ImageProps>;
-    Edit?: PrimitiveOverrideProps<ViewProps>;
-    Button44868423?: PrimitiveOverrideProps<ButtonProps>;
+    "Group 9"?: PrimitiveOverrideProps<ViewProps>;
     "Icon/edit"?: IconeditProps;
-    Delete?: PrimitiveOverrideProps<ViewProps>;
-    Button44868447?: PrimitiveOverrideProps<ButtonProps>;
+    Button45028517?: PrimitiveOverrideProps<ButtonProps>;
+    "Group 10"?: PrimitiveOverrideProps<ViewProps>;
     delete?: DeleteProps;
+    Button45028531?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
 export declare type CRUDDisplayProps = React.PropsWithChildren<Partial<ViewProps> & {
     tutoringEvent?: any;

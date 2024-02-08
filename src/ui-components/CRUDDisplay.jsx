@@ -16,11 +16,11 @@ const client = generateClient();
 export default function CRUDDisplay(props) {
   const { tutoringEvent, overrides, ...rest } = props;
   const authAttributes = useAuth().user?.attributes ?? {};
-  const buttonFourFourEightSixEightFourTwoThreeOnClick = useNavigateAction({
+  const buttonFourFiveZeroTwoEightFiveOneSevenOnClick = useNavigateAction({
     type: "url",
     url: `${"/update/"}${tutoringEvent?.id}`,
   });
-  const buttonFourFourEightSixEightFourFourSevenOnMouseDown = async () => {
+  const buttonFourFiveZeroTwoEightFiveThreeOneOnClick = async () => {
     await client.graphql({
       query: deleteTutoringEvent.replaceAll("__typename", ""),
       variables: {
@@ -30,7 +30,7 @@ export default function CRUDDisplay(props) {
       },
     });
   };
-  const buttonFourFourEightSixEightFourFourSevenOnMouseUp = useNavigateAction({
+  const buttonFourFiveZeroTwoEightFiveThreeOneOnMouseUp = useNavigateAction({
     type: "url",
     url: "/",
   });
@@ -474,83 +474,62 @@ export default function CRUDDisplay(props) {
       ></Image>
       <View
         padding="0px 0px 0px 0px"
-        width="48.74px"
-        height="32px"
+        width="40px"
+        height="41px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
         top="287px"
-        left="243px"
-        {...getOverrideProps(overrides, "Edit")}
+        left="153px"
+        {...getOverrideProps(overrides, "Group 9")}
       >
-        <Button
-          width="50.74px"
-          height="34px"
-          position="absolute"
-          border="1px SOLID rgba(4,125,149,1)"
-          overflow="hidden"
-          top="-1px"
-          left="-1px"
-          backgroundColor="rgba(255,255,255,1)"
-          size="default"
-          isDisabled={false}
-          variation="default"
-          onClick={() => {
-            buttonFourFourEightSixEightFourTwoThreeOnClick();
-          }}
-          {...getOverrideProps(overrides, "Button44868423")}
-        ></Button>
         <Iconedit
-          width="24px"
-          height="24px"
+          width="30px"
+          height="28px"
           display="block"
           gap="unset"
           alignItems="unset"
           justifyContent="unset"
           overflow="hidden"
           position="absolute"
-          top="4px"
-          left="12px"
+          top="8px"
+          left="5px"
           border="1px SOLID rgba(4,125,149,1)"
           padding="0px 0px 0px 0px"
           backgroundColor="rgba(255,255,255,1)"
           {...getOverrideProps(overrides, "Icon/edit")}
         ></Iconedit>
+        <Button
+          width="42px"
+          height="43px"
+          position="absolute"
+          top="-1px"
+          left="-1px"
+          size="default"
+          isDisabled={false}
+          variation="default"
+          children=""
+          onClick={() => {
+            buttonFourFiveZeroTwoEightFiveOneSevenOnClick();
+          }}
+          {...getOverrideProps(overrides, "Button45028517")}
+        ></Button>
       </View>
       <View
         padding="0px 0px 0px 0px"
-        width="48.74px"
-        height="32px"
+        width="40px"
+        height="41px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
         top="287px"
-        left="316px"
-        {...getOverrideProps(overrides, "Delete")}
+        left="388px"
+        {...getOverrideProps(overrides, "Group 10")}
       >
-        <Button
-          width="50.74px"
-          height="34px"
-          position="absolute"
-          border="1px SOLID rgba(4,125,149,1)"
-          top="-1px"
-          left="-1px"
-          backgroundColor="rgba(255,255,255,1)"
-          size="default"
-          isDisabled={false}
-          variation="default"
-          onMouseDown={() => {
-            buttonFourFourEightSixEightFourFourSevenOnMouseDown();
-          }}
-          onMouseUp={() => {
-            buttonFourFourEightSixEightFourFourSevenOnMouseUp();
-          }}
-          {...getOverrideProps(overrides, "Button44868447")}
-        ></Button>
         <Delete
           width="24.5px"
           height="26px"
@@ -560,12 +539,30 @@ export default function CRUDDisplay(props) {
           justifyContent="unset"
           overflow="hidden"
           position="absolute"
-          top="3px"
-          left="12px"
+          top="7px"
+          left="8px"
           border="1px SOLID rgba(4,125,149,1)"
           padding="0px 0px 0px 0px"
           {...getOverrideProps(overrides, "delete")}
         ></Delete>
+        <Button
+          width="42px"
+          height="43px"
+          position="absolute"
+          top="-1px"
+          left="-1px"
+          size="default"
+          isDisabled={false}
+          variation="default"
+          children=""
+          onClick={() => {
+            buttonFourFiveZeroTwoEightFiveThreeOneOnClick();
+          }}
+          onMouseUp={() => {
+            buttonFourFiveZeroTwoEightFiveThreeOneOnMouseUp();
+          }}
+          {...getOverrideProps(overrides, "Button45028531")}
+        ></Button>
       </View>
     </View>
   );
