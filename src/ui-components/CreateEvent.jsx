@@ -6,12 +6,45 @@
 
 /* eslint-disable */
 import * as React from "react";
+import { useState } from "react";
 import { getOverrideProps, useNavigateAction } from "./utils";
+import { generateClient } from "aws-amplify/api";
+import { createTutoringEvent } from "../graphql/mutations";
 import { Button, TextField, View } from "@aws-amplify/ui-react";
+const client = generateClient();
 export default function CreateEvent(props) {
   const { overrides, ...rest } = props;
+  const [
+    textFieldFourTwoFiveEightSevenNineNineValue,
+    setTextFieldFourTwoFiveEightSevenNineNineValue,
+  ] = useState("");
+  const [
+    textFieldFourTwoFiveEightEightZeroZeroValue,
+    setTextFieldFourTwoFiveEightEightZeroZeroValue,
+  ] = useState("");
+  const [
+    textFieldFourTwoFiveEightEightZeroOneValue,
+    setTextFieldFourTwoFiveEightEightZeroOneValue,
+  ] = useState("");
+  const [
+    textFieldFourTwoFiveEightEightTwoOneValue,
+    setTextFieldFourTwoFiveEightEightTwoOneValue,
+  ] = useState("");
   const gobackOnClick = useNavigateAction({ type: "url", url: "/" });
-  const makeOnClick = useNavigateAction({ type: "url", url: "/" });
+  const makeOnClick = async () => {
+    await client.graphql({
+      query: createTutoringEvent.replaceAll("__typename", ""),
+      variables: {
+        input: {
+          studentName: textFieldFourTwoFiveEightSevenNineNineValue,
+          date: textFieldFourTwoFiveEightEightZeroZeroValue,
+          conceptsCovered: textFieldFourTwoFiveEightEightZeroOneValue,
+          image: textFieldFourTwoFiveEightEightTwoOneValue,
+        },
+      },
+    });
+  };
+  const makeOnMouseUp = useNavigateAction({ type: "url", url: "/" });
   return (
     <View
       width="730px"
@@ -39,13 +72,17 @@ export default function CreateEvent(props) {
         isDisabled={false}
         labelHidden={false}
         variation="default"
+        value={textFieldFourTwoFiveEightSevenNineNineValue}
+        onChange={(event) => {
+          setTextFieldFourTwoFiveEightSevenNineNineValue(event.target.value);
+        }}
         {...getOverrideProps(overrides, "TextField4258799")}
       ></TextField>
       <TextField
         width="426px"
         height="unset"
         label="Date"
-        placeholder="12/25/23 @ Flex"
+        placeholder="YYYY-MM-DD"
         position="absolute"
         top="127px"
         left="39px"
@@ -53,6 +90,10 @@ export default function CreateEvent(props) {
         isDisabled={false}
         labelHidden={false}
         variation="default"
+        value={textFieldFourTwoFiveEightEightZeroZeroValue}
+        onChange={(event) => {
+          setTextFieldFourTwoFiveEightEightZeroZeroValue(event.target.value);
+        }}
         {...getOverrideProps(overrides, "TextField4258800")}
       ></TextField>
       <TextField
@@ -66,6 +107,10 @@ export default function CreateEvent(props) {
         isDisabled={false}
         labelHidden={false}
         variation="default"
+        value={textFieldFourTwoFiveEightEightZeroOneValue}
+        onChange={(event) => {
+          setTextFieldFourTwoFiveEightEightZeroOneValue(event.target.value);
+        }}
         {...getOverrideProps(overrides, "TextField4258801")}
       ></TextField>
       <TextField
@@ -79,6 +124,10 @@ export default function CreateEvent(props) {
         isDisabled={false}
         labelHidden={false}
         variation="default"
+        value={textFieldFourTwoFiveEightEightTwoOneValue}
+        onChange={(event) => {
+          setTextFieldFourTwoFiveEightEightTwoOneValue(event.target.value);
+        }}
         {...getOverrideProps(overrides, "TextField4258821")}
       ></TextField>
       <Button
@@ -108,6 +157,9 @@ export default function CreateEvent(props) {
         children="+"
         onClick={() => {
           makeOnClick();
+        }}
+        onMouseUp={() => {
+          makeOnMouseUp();
         }}
         {...getOverrideProps(overrides, "make")}
       ></Button>

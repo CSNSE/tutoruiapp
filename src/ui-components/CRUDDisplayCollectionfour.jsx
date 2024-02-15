@@ -23,7 +23,7 @@ export default function CRUDDisplayCollectionfour(props) {
   const [instanceKey, setInstanceKey] = React.useState("newGuid");
   const [loading, setLoading] = React.useState(true);
   const [maxViewed, setMaxViewed] = React.useState(1);
-  const pageSize = 6;
+  const pageSize = 4;
   const isPaginated = true;
   React.useEffect(() => {
     nextToken[instanceKey] = "";
@@ -81,10 +81,9 @@ export default function CRUDDisplayCollectionfour(props) {
     <div>
       <Collection
         type="grid"
-        isSearchable={true}
         searchPlaceholder="Search..."
-        templateColumns="1fr 1fr"
-        autoFlow="row"
+        templateRows="1fr 1fr"
+        autoFlow="column"
         alignItems="stretch"
         justifyContent="stretch"
         itemsPerPage={pageSize}

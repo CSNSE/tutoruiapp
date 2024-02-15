@@ -8,6 +8,7 @@
 import * as React from "react";
 import { getOverrideProps } from "./utils";
 import { Icon, Image, Text, View } from "@aws-amplify/ui-react";
+import Delete from "./Delete";
 export default function DisplayBookEventNew(props) {
   const { overrides, ...rest } = props;
   return (
@@ -447,6 +448,21 @@ export default function DisplayBookEventNew(props) {
         objectFit="cover"
         {...getOverrideProps(overrides, "image")}
       ></Image>
+      <Delete
+        width="18px"
+        height="19.2px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
+        overflow="hidden"
+        position="absolute"
+        top="312px"
+        left="335px"
+        border="1px SOLID rgba(4,125,149,1)"
+        padding="0px 0px 0px 0px"
+        {...getOverrideProps(overrides, "delete")}
+      ></Delete>
     </View>
   );
 }

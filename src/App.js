@@ -3,22 +3,23 @@
 // App.js
 import React, { Component } from 'react';
 import './App.css';
+
 import { Button, ThemeProvider, withAuthenticator } from '@aws-amplify/ui-react';
-import { NavBar, TutoringEventCreateForm, DispTutorEventCollection, CRUDDisplayCollection, CRUDDisplayCollectionfour} from "./ui-components";
-import { createTutoringEvent, deleteTutoringEvent, createDay, deleteDay } from './graphql/mutations';
+import { NavBar, TutoringEventCreateForm, CRUDDisplayCollectionfour,CreateEvent, CustomCreate} from "./ui-components";
+import { createTutoringEvent} from './graphql/mutations';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { generateClient } from "aws-amplify/api";
 import { useNavigate } from 'react-router-dom';
-import Diary from './diary';
 import { useParams } from 'react-router-dom';
 import EditEvent from './EventEdit';
 import { getTutoringEvent } from './graphql/queries';
 import Calendar from './Calendar';
-import './Calendar.css'
 import { listTutoringEvents } from './graphql/queries';
 import GridSizedDispEventCollection from './GridSizedDispEventCollection';
+import { signUp } from 'aws-amplify/auth';
 const client = generateClient();
 class App extends Component {
+
   render() {
     return (
       <div className="App">
@@ -31,7 +32,7 @@ class App extends Component {
                 <CRUDDisplayCollectionfour/>
               </div>
             }/> 
-              <Route exact path='/new' element={<div><NavBar /><MyFormComponent    /></div>} />
+              <Route exact path='/new' element={<div><NavBar /><CustomCreate/></div>} />
               <Route exact path="/update/:cid" element={<EditEvent />} />
             </Routes>
           </Router>
@@ -40,6 +41,7 @@ class App extends Component {
     );
   }
 }
+
 
 export default withAuthenticator(App);
 

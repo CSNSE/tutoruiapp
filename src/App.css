@@ -50,10 +50,3 @@
   height: 200px;
 }
 
-.grid-collection-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust the width as needed */
-  gap: 10px; /* Adjust the gap between items */
-}
-
-/* You can add additional styles here if needed */

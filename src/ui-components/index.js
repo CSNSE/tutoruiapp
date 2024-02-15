@@ -13,6 +13,7 @@ export { default as CommentCard } from "./CommentCard";
 export { default as ContactUs } from "./ContactUs";
 export { default as CreateEvent } from "./CreateEvent";
 export { default as CreateTutoringEvent } from "./CreateTutoringEvent";
+export { default as CustomCreate } from "./CustomCreate";
 export { default as DataRow } from "./DataRow";
 export { default as Delete } from "./Delete";
 export { default as DispTutorEvent } from "./DispTutorEvent";

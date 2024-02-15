@@ -6,6 +6,7 @@
 
 import * as React from "react";
 import { IconProps, ImageProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { DeleteProps } from "./Delete";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -41,6 +42,7 @@ export declare type DisplayBookEventNewOverridesProps = {
     "Group 8"?: PrimitiveOverrideProps<ViewProps>;
     "Concepts Covered:44848350"?: PrimitiveOverrideProps<TextProps>;
     image?: PrimitiveOverrideProps<ImageProps>;
+    delete?: DeleteProps;
 } & EscapeHatchProps;
 export declare type DisplayBookEventNewProps = React.PropsWithChildren<Partial<ViewProps> & {
     overrides?: DisplayBookEventNewOverridesProps | undefined | null;

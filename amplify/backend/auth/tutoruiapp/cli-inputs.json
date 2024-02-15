@@ -3,7 +3,7 @@
   "cognitoConfig": {
     "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "tutoru5177967b",
+    "resourceNameTruncated": "tutoru5c2a9926",
     "userPoolName": "tutoruiapp",
     "autoVerifiedAttributes": [
       "email"
@@ -32,9 +32,9 @@
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [],
     "userpoolClientReadAttributes": [],
-    "userpoolClientLambdaRole": "tutoru5177967b_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "tutoru5c2a9926_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "5177967b",
+    "sharedId": "5c2a9926",
     "resourceName": "tutoruiapp",
     "authSelections": "identityPoolAndUserPool",
     "serviceName": "Cognito",
@@ -48,21 +48,6 @@
     "thirdPartyAuth": false,
     "authProviders": [],
     "usernameCaseSensitive": false,
-    "useEnabledMfas": true,
-    "authRoleArn": {
-      "Fn::GetAtt": [
-        "AuthRole",
-        "Arn"
-      ]
-    },
-    "unauthRoleArn": {
-      "Fn::GetAtt": [
-        "UnauthRole",
-        "Arn"
-      ]
-    },
-    "breakCircularDependency": true,
-    "dependsOn": [],
-    "hostedUI": false
+    "useEnabledMfas": true
   }
 }
