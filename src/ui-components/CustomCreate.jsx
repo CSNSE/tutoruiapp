@@ -30,7 +30,7 @@ export default function CustomCreate(props) {
     textFieldFourFiveFiveTwoEightSixTwoTwoValue,
     setTextFieldFourFiveFiveTwoEightSixTwoTwoValue,
   ] = useState("");
-  const buttonFourFiveFiveTwoEightFiveSevenTwoOnClick = async () => {
+  const buttonFourFiveFiveTwoEightFiveSevenTwoOnMouseDown = async () => {
     await client.graphql({
       query: createTutoringEvent.replaceAll("__typename", ""),
       variables: {
@@ -43,6 +43,10 @@ export default function CustomCreate(props) {
       },
     });
   };
+  const buttonFourFiveFiveTwoEightFiveSevenTwoOnMouseUp = useNavigateAction({
+    type: "url",
+    url: "/",
+  });
   const buttonFourFiveFiveTwoEightFiveSevenSixOnClick = useNavigateAction({
     type: "url",
     url: "/",
@@ -160,8 +164,11 @@ export default function CustomCreate(props) {
         isDisabled={false}
         variation="default"
         children="Submit"
-        onClick={() => {
-          buttonFourFiveFiveTwoEightFiveSevenTwoOnClick();
+        onMouseDown={() => {
+          buttonFourFiveFiveTwoEightFiveSevenTwoOnMouseDown();
+        }}
+        onMouseUp={() => {
+          buttonFourFiveFiveTwoEightFiveSevenTwoOnMouseUp();
         }}
         {...getOverrideProps(overrides, "Button45528572")}
       ></Button>
