@@ -13,7 +13,7 @@ import { getOverrideProps, useNavigateAction } from "./utils";
 import { Button, Icon, Text, TextField, View } from "@aws-amplify/ui-react";
 const client = generateClient();
 export default function CustomCreate(props) {
-  const { overrides, ...rest } = props;
+  const { tutoringEvent, overrides, ...rest } = props;
   const [
     textFieldFourFiveFiveTwoEightFiveEightTwoValue,
     setTextFieldFourFiveFiveTwoEightFiveEightTwoValue,
@@ -42,12 +42,7 @@ export default function CustomCreate(props) {
         },
       },
     });
-    console.log(textFieldFourFiveFiveTwoEightSixOneFiveValue)
   };
-  const buttonFourFiveFiveTwoEightFiveSevenTwoOnMouseUp = useNavigateAction({
-    // type: "url",
-    // url: "/",
-  });
   const buttonFourFiveFiveTwoEightFiveSevenSixOnClick = useNavigateAction({
     type: "url",
     url: "/",
@@ -167,9 +162,6 @@ export default function CustomCreate(props) {
         children="Submit"
         onClick={() => {
           buttonFourFiveFiveTwoEightFiveSevenTwoOnClick();
-        }}
-        onMouseUp={() => {
-          buttonFourFiveFiveTwoEightFiveSevenTwoOnMouseUp();
         }}
         {...getOverrideProps(overrides, "Button45528572")}
       ></Button>

@@ -32,6 +32,8 @@ export declare type CustomCreateOverridesProps = {
     TextField45528622?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type CustomCreateProps = React.PropsWithChildren<Partial<ViewProps> & {
+    tutoringEvent?: any;
+} & {
     overrides?: CustomCreateOverridesProps | undefined | null;
 }>;
 export default function CustomCreate(props: CustomCreateProps): React.ReactElement;

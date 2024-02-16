@@ -20,7 +20,7 @@ export default function CRUDDisplay(props) {
     type: "url",
     url: `${"/update/"}${tutoringEvent?.id}`,
   });
-  const buttonFourFiveZeroTwoEightFiveThreeOneOnClick = async () => {
+  const buttonFourFiveZeroTwoEightFiveThreeOneOnMouseDown = async () => {
     await client.graphql({
       query: deleteTutoringEvent.replaceAll("__typename", ""),
       variables: {
@@ -555,8 +555,8 @@ export default function CRUDDisplay(props) {
           isDisabled={false}
           variation="default"
           children=""
-          onClick={() => {
-            buttonFourFiveZeroTwoEightFiveThreeOneOnClick();
+          onMouseDown={() => {
+            buttonFourFiveZeroTwoEightFiveThreeOneOnMouseDown();
           }}
           onMouseUp={() => {
             buttonFourFiveZeroTwoEightFiveThreeOneOnMouseUp();
